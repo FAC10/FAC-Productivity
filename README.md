@@ -1,6 +1,6 @@
 # FAC Classroom Apps
 
-###Welcome
+### Welcome
 
 FAC classroom apps is a product platform designed to enhance learning in an open source, peer-lead environment, such as our coding bootcamps.
 
