@@ -4,22 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./../../public/assets/style.css">
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/threefourtwotwo" type="text/css"/>
   <title>Stopwatch</title>
 
 </head>
 <body>
+  <section class ="container">
+
+  <header>
+    <h1>Stopwatch</h1>
+  </header>
+
   <section class="stopwatch">
+    <section id="display" class="stopwatch__display">00:00.00</section>
+    <div class="stopwatch__button">
     <button id="start" class="stopwatch__button">start</button>
     <button id="stop" class="stopwatch__button">stop</button>
     <button id="reset" class="stopwatch__button">reset</button>
     <button id="lap" class="stopwatch__button">lap</button>
+    </div>
     <section id="hourdisplay" class="stopwatch__hours"></section>
-    <section id="display" class="stopwatch__display">00:00.00</section>
     <section id="lapcontainer"></section>
   </section>
 
+<footer>
+  <button type="button" name="button" class="github_link">GitHub repo</button>
+</footer>
+
   <script type="text/javascript" src="stopwatch.js"></script>
+  
 </body>
 </html>
