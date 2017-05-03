@@ -43,19 +43,31 @@ module.exports = {
         }
 
         const userInfo = JSON.parse(githubUserResponse);
-        console.log(userInfo);
+
         const requestOrgOptions = {
-          url: userInfo.organizations_url,
+          url: 'https://api.github.com/user/orgs',
           headers: requestHeaders,
         };
-        console.log(requestOrgOptions, 'HERE');
 
         request.get(requestOrgOptions, (err, response, orgResponse) => {
           if (err) {
             console.log(err);
           }
 
-          console.log(orgResponse, '<<<<<<<<<<<<<<ORG RESPONSE');
+          const orgs = JSON.parse(orgResponse);
+          const githubOrgId = 9970257;
+
+          const isFacMember = Boolean(orgs.find(org => org.id === githubOrgId));
+
+          if (isFacMember) {
+            req.cookieAuth.set({
+              name: userInfo.name,
+              avatar: userInfo.avatar_url,
+            });
+            reply.redirect('/landing');
+          } else {
+            reply('Sorry, you don\'t have permission to view this page');
+          }
         });
       });
     });
