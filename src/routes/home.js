@@ -5,6 +5,6 @@ module.exports = {
     auth: { mode: 'try' },
   },
   handler: (req, reply) => {
-    reply.view('home', {world: 'world'})
+    reply.view('home', { world: 'world' });
   },
 };
