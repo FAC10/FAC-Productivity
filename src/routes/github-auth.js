@@ -18,13 +18,12 @@ module.exports = {
 
     request.post(accessTokenUrl, (err, response, githubAccessTokenResponse) => {
       if (err) {
-        console.log(err);
+        return reply.view('error', { error: 'Error connecting to Github API.' });
       }
 
       const { access_token } = qs.parse(githubAccessTokenResponse);
       if (!access_token) {
-        console.log('No access token!');
-        return reply('No access token!');
+        return reply.view('error', { error: 'We didn\'t get an access token from Github, sorry!' });
       }
 
       const userUrl = 'https://api.github.com/user';
@@ -39,7 +38,7 @@ module.exports = {
 
       request.get(requestUserOptions, (err, response, githubUserResponse) => {
         if (err) {
-          console.log(err);
+          return reply.view('error', { error: 'No user response from Github.' });
         }
 
         const userInfo = JSON.parse(githubUserResponse);
@@ -51,7 +50,7 @@ module.exports = {
 
         request.get(requestOrgOptions, (err, response, orgResponse) => {
           if (err) {
-            console.log(err);
+            return reply.view('error', { error: 'Error getting organisations from Github.' });
           }
 
           const orgs = JSON.parse(orgResponse);
@@ -64,10 +63,10 @@ module.exports = {
               name: userInfo.name,
               avatar: userInfo.avatar_url,
             });
-            reply.redirect('/landing');
-          } else {
-            reply('Sorry, you don\'t have permission to view this page');
+            return reply.redirect('/landing');
           }
+
+          return reply.view('error', { error: 'You\'re not allowed here.' });
         });
       });
     });
