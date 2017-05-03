@@ -85,6 +85,7 @@ function addTimeToDom() {
   if (!hasStart(stopwatch)) { // if empty start then reset display to 0
     replaceDomElementContent(setTime(0, 0), get('display'));
   }
+  console.log(clock);
 }
 
 function createLapElement(start, end, className) {
