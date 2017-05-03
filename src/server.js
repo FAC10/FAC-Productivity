@@ -18,7 +18,7 @@ server.register([vision, cookieAuthModule, contextCredentials], (err) => {
   server.auth.strategy('base', 'cookie', 'required', {
     password: process.env.COOKIE_PASSWORD,
     cookie: 'FACAPPS',
-    isSecure: process.env.NODE_ENV !== 'dev',
+    isSecure: false,
     ttl: 24 * 60 * 60 * 1000,
     redirectTo: '/',
     redirectOnTry: false,
