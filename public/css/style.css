@@ -22,6 +22,12 @@ header {
   width: 4.5em;
 }
 
+.back_btn {
+  border-radius: 50%;
+  height: 4.5em;
+  width: 4.5em;
+}
+
 .welcome_msg {
   margin-right: .5em;
 }
