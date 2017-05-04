@@ -54,6 +54,7 @@ module.exports = {
           req.cookieAuth.set({
             name: userInfo.name,
             avatar: userInfo.avatar_url,
+            access_token,
           });
           return reply.redirect('/home');
         }
