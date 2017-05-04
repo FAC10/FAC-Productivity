@@ -1,6 +1,9 @@
 module.exports = {
   method: 'GET',
-  path: '/landing',
+  path: '/',
+  config: {
+    auth: { mode: 'try' },
+  },
   handler: (req, reply) => {
     reply.view('landing');
   },

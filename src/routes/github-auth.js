@@ -55,7 +55,7 @@ module.exports = {
             name: userInfo.name,
             avatar: userInfo.avatar_url,
           });
-          return reply.redirect('/landing');
+          return reply.redirect('/home');
         }
 
         return reply.view('error', { error: 'You\'re not allowed here.' });

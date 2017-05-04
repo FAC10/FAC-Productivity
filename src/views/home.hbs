@@ -1,14 +1,47 @@
-<article class="landing">
-  <img src="" alt="Logo here">
-  <h1 class="landing_heading">Founders and Coders</h1>
-  <h2 class="landing_heading">Productivity Apps</h2>
-  <p class="landing_text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  </p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./public/assets/style.css">
+  <title>Fac Productivity Apps Home</title>
+</head>
+<body>
 
-  {{> github-login}}
+  <header>
+    <img src="" alt="user profile image" class="profile_img">
+    <h1>Welcome back, {{credentials.name}}</h1>
+    <button type="button" name="button">sign out</button>
+  </header>
 
-</article>
+  <p class="apps_intro">Welcome to our productivity apps... </p>
 
-<footer>
-  <button type="button" name="button" class="github_link">Github repo</button>
-</footer>
+  <section class="apps">
+
+  <article class="app">
+    <img src="" alt="">
+    <h1>LPOP</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+
+  <article class="app">
+    <img src="" alt="">
+    <h1>20:20:20 Timer</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+
+  <article class="app">
+    <img src="" alt="">
+    <h1>Add your own!</h1>
+    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  </article>
+
+  </section>
+
+  <footer>
+    <button type="button" name="button" class="github_link">Github repo</button>
+  </footer>
+
+</body>
+</html>
