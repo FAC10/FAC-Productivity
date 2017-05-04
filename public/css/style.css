@@ -17,9 +17,9 @@ header {
 }
 
 .logo {
-  border-radius: 50%;
   height: 4.5em;
   width: 4.5em;
+  border-radius: 50%; 
 }
 
 .back_btn {
@@ -91,6 +91,11 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.landing_logo {
+  width: 25em;
+  height: auto;
 }
 
 .landing_heading {
