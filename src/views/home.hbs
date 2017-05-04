@@ -1,41 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./public/assets/style.css">
-  <title>Fac Productivity Apps Home</title>
-</head>
-<body>
-
-  <header>
+<header>
     <img src="" alt="user profile image" class="profile_img">
     <h1>Welcome back, {{credentials.name}}</h1>
     <button type="button" name="button">sign out</button>
-  </header>
+</header>
 
-  <p class="apps_intro">Welcome to our productivity apps... </p>
+  <p class="apps_intro">Welcome to our hardware projects! These projects can be used online or connected to an LED display.
+Want to find out more and get involved? Star our GitHub repo to get started.</p>
 
   <section class="apps">
 
-  <article class="app">
-    <img src="" alt="">
-    <h1>LPOP</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+  <a class="app">
+    <div class="app__image app__image--lpop"></div>
+    <h1 class="app__title">lpop</h1>
+    <p class="app__text">Lpop is like selecting a name out of a hat. It’s useful for picking random class members to answer a question or demo their work.</p>
   </article>
 
   <article class="app">
-    <img src="" alt="">
-    <h1>20:20:20 Timer</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="app__image app__image--202020"></div>
+    <h1 class="app__title">20:20:20</h1>
+    <p class="app__text">Should I ask for help?</p>
+    <p class="app__text">When you hit a wall, research the problem, ask your peers, then ask a mentor, in 20-minute bursts.</p>
   </article>
 
   <article class="app">
-    <img src="" alt="">
-    <h1>Add your own!</h1>
-    <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="app__image app__image--add"></div>
+    <h1 class="app__title">add an app</h1>
+    <p class="app__text">You are welcome to add your own F&C hardware projects.</p>
+    <p class="app__text">Please visit our GitHub repository to find out more.</p>
   </article>
+
+  <article class="app">
+    <div class="app__image"></div>
+  </article>
+
 
   </section>
 
