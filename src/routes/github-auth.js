@@ -1,6 +1,8 @@
 const qs = require('querystring');
 const request = require('request');
 
+const { parallel, partial } = require('./../lib/utilities');
+
 module.exports = {
   method: 'GET',
   path: '/login',
@@ -13,8 +15,9 @@ module.exports = {
       client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
     };
+    const accessTokenPath = 'https://github.com/login/oauth/access_token?';
 
-    const accessTokenUrl = `https://github.com/login/oauth/access_token?${qs.stringify(queryParamAccessToken)}`;
+    const accessTokenUrl = accessTokenPath + qs.stringify(queryParamAccessToken);
 
     request.post(accessTokenUrl, (err, response, githubAccessTokenResponse) => {
       if (err) {
@@ -26,48 +29,36 @@ module.exports = {
         return reply.view('error', { error: 'We didn\'t get an access token from Github, sorry!' });
       }
 
-      const userUrl = 'https://api.github.com/user';
-      const requestHeaders = {
+      const headers = {
         'User-Agent': 'fac-apps',
         Authorization: `token ${access_token}`,
       };
-      const requestUserOptions = {
-        url: userUrl,
-        headers: requestHeaders,
-      };
 
-      request.get(requestUserOptions, (err, response, githubUserResponse) => {
+      const userUrl = 'https://api.github.com/user';
+      const orgsUrl = 'https://api.github.com/user/orgs';
+
+      const requestUser = partial(request.get, { url: userUrl, headers });
+      const requestOrgs = partial(request.get, { url: orgsUrl, headers });
+
+      parallel([requestOrgs, requestUser], (err, [orgs, user]) => {
         if (err) {
-          return reply.view('error', { error: 'No user response from Github.' });
+          return reply.view('error', { error: 'Invalid response from Github.' });
         }
 
-        const userInfo = JSON.parse(githubUserResponse);
+        const userInfo = JSON.parse(user[1]);
+        const orgsInfo = JSON.parse(orgs[1]);
+        const facOrgId = 9970257;
+        const isFacMember = orgsInfo.find(org => org.id === facOrgId);
 
-        const requestOrgOptions = {
-          url: 'https://api.github.com/user/orgs',
-          headers: requestHeaders,
-        };
+        if (isFacMember) {
+          req.cookieAuth.set({
+            name: userInfo.name,
+            avatar: userInfo.avatar_url,
+          });
+          return reply.redirect('/landing');
+        }
 
-        request.get(requestOrgOptions, (err, response, orgResponse) => {
-          if (err) {
-            return reply.view('error', { error: 'Error getting organisations from Github.' });
-          }
-
-          const orgs = JSON.parse(orgResponse);
-          const githubOrgId = 9970257;
-
-          const isFacMember = Boolean(orgs.find(org => org.id === githubOrgId));
-
-          if (isFacMember) {
-            req.cookieAuth.set({
-              name: userInfo.name,
-              avatar: userInfo.avatar_url,
-            });
-            return reply.redirect('/landing');
-          }
-
-          return reply.view('error', { error: 'You\'re not allowed here.' });
-        });
+        return reply.view('error', { error: 'You\'re not allowed here.' });
       });
     });
   },
