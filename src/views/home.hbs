@@ -10,9 +10,23 @@
 <body>
 
   <header>
-    <img src="" alt="user profile image" class="profile_img">
-    <h1>Welcome back, {{credentials.name}}</h1>
-    <button type="button" name="button">sign out</button>
+    <img class="logo" src="" alt ="fac logo">
+  <div class="header_right">
+    <h4 class="welcome_msg">Welcome back,</br>{{credentials.name}}!</h4>
+
+      <div class="dropdown">
+        <img class="profile_img" src={{credentials.avatar}} alt="user profile image">
+      <div class="dropdown_content">
+
+        <a href="#" class="dropdown_link">
+          <button type="button" name="button" class="logout_btn">
+            log out</button>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
   </header>
 
   <p class="apps_intro">Welcome to our productivity apps... </p>
