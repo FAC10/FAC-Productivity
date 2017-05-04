@@ -22,9 +22,9 @@ function resetTime () {
   if (hasStop(stopwatch)) {
     delete stopwatch.stopTime;
     delete stopwatch.startTime;
-    var laps = [].slice.call(document.getElementsByClassName('lap'));
-    laps.forEach(function (lap) {
-      lap.parentElement.removeChild(lap);
+    var twenties = [].slice.call(document.getElementsByClassName('twenty'));
+    twenties.forEach(function (twenty) {
+      twenty.parentElement.removeChild(twenty);
     });
   }
 }
@@ -51,11 +51,10 @@ function toReadableTime(time) {
   time -= secs;
   var mins = time % 3600000;
 
-  // var centiseconds = twoDigitPadding(Math.floor(ms / 10));
   var seconds = twoDigitPadding(secs / 1000);
   var minutes = twoDigitPadding(mins / 60000);
 
-  return minutes + ':' + seconds; // + '.' + centiseconds;
+  return minutes + ':' + seconds; 
 }
 
 function getHours(ms) {
@@ -86,10 +85,7 @@ function get(element) {
 }
 
 function addTimeToDom() {
-  var hours = setHours(stopwatch.startTime, stopwatch.stopTime || getTime());
   var clock = setTime(stopwatch.startTime, stopwatch.stopTime || getTime());
-  hours = hours ? hours + ":" : ''; // if hours display hours
-  replaceDomElementContent(hours, get('hourdisplay'));
   replaceDomElementContent(clock, get('display'));
   if (!hasStart(stopwatch)) { // if empty start then reset display to 0
     replaceDomElementContent(setTime(0, 0), get('display'));
@@ -105,9 +101,7 @@ function createTwentyElement(start, end, className) {
   var twenty = document.createElement('div');
   twenty.className += className || 'twenty';
   var twentyNumber = document.getElementsByClassName('twenty').length + 1;
-  // var hour = setHours(start, end);
-  // hour = hour ? hour + ":" : '';
-  twenty.innerText = "You should ask help from " + twentyNumber; // + " " + hour + setTime(start, end);
+  twenty.innerText = "You should ask help from " + twentyNumber; 
   return twenty;
 }
 
@@ -121,6 +115,5 @@ function addTwenty() {
 get('start').addEventListener('click', startTiming);
 get('stop').addEventListener('click', stopTiming);
 get('reset').addEventListener('click', resetTime);
-// get('lap').addEventListener('click', addLap);
 
-setInterval(addTimeToDom, 10);
+setInterval(addTimeToDom, 500);
