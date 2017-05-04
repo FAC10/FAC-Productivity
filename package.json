@@ -24,6 +24,7 @@
     "hapi": "^16.1.1",
     "hapi-auth-cookie": "^7.0.0",
     "hapi-context-credentials": "^2.0.0",
+    "inert": "^4.2.0",
     "node-notifier": "^5.1.2",
     "pg": "^6.1.5",
     "request": "^2.81.0",
