@@ -4,7 +4,7 @@ html, body {
 }
 
 header {
-  background: rgb(230,121,121);
+  background: #F67374;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -19,7 +19,7 @@ h1 {
 }
 
 footer {
-  background:rgb(230,121,121);
+  background: #F67374;
   display: flex;
   justify-content: center;
 }
@@ -56,7 +56,23 @@ footer {
 
 /*apps homepage styles*/
 .apps_intro {
-  margin: 1em;
+  background-color: #F5F5F5;
+  width: 42rem;
+  margin: 4rem auto;
+  padding: .5rem 2rem;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.7)
+}
+
+.apps_intro__text {
+  font-family: 'Hind', sans-serif;
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+.apps_intro__link {
+  color: #F57373;
+  text-decoration: none;
 }
 
 .apps {
@@ -100,11 +116,13 @@ footer {
 .app__image--lpop {
   background-color: #FBE9A1;
   background-image: url('/images/lolipop.jpg');
+  background-size: 55%;
 }
 
 .app__image--202020 {
   background-color: #B0E8AE;
   background-image: url('/images/clock.jpg');
+  background-size: 50%;
 }
 
 .app__image--add {
