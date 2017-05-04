@@ -4,7 +4,7 @@ html, body {
 }
 
 header {
-  background: rgb(230,121,121);
+  background: #F67374;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -65,7 +65,7 @@ h1 {
 }
 
 footer {
-  background:rgb(230,121,121);
+  background: #F67374;
   display: flex;
   justify-content: center;
 }
@@ -102,20 +102,99 @@ footer {
 
 /*apps homepage styles*/
 .apps_intro {
-  margin: 1em;
+  background-color: #F5F5F5;
+  width: 42rem;
+  margin: 4rem auto;
+  padding: .5rem 2rem;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.7)
+}
+
+.apps_intro__text {
+  font-family: 'Hind', sans-serif;
+  font-size: 1.3rem;
+  padding: 0;
+}
+
+.apps_intro__link {
+  color: #F57373;
+  text-decoration: none;
 }
 
 .apps {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 1em;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 92rem;
+  font-size: 0;
 }
 
 .app {
-  background: rgb(245,245,245);
   margin: .5em;
+  background-color: #F5F5F5;
+  width: 19rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  min-height: 25.4rem;
+  text-decoration: none;
+  transition: 0.3s all ease;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.app:hover, .app:focus {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.14), 0 6px 6px rgba(0,0,0,0.15);
+}
+
+.app__image {
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 12rem;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.app__image--lpop {
+  background-color: #FBE9A1;
+  background-image: url('/images/lolipop.jpg');
+  background-size: 55%;
+}
+
+.app__image--202020 {
+  background-color: #B0E8AE;
+  background-image: url('/images/clock.jpg');
+  background-size: 50%;
+}
+
+.app__image--add {
+  background-color: #96E7E0;
+  background-image: url('/images/plus.jpg');
+}
+
+.app__title {
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  color: #F57373;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+}
+
+.app__text {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: rgba(0,0,0,.7);
+  padding: 0 2rem;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /*stopwatch app*/
