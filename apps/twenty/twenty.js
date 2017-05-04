@@ -9,6 +9,9 @@ function startTiming() {
   if (hasStop(stopwatch)) {
     stopwatch.startTime = getTime() - timeDifference(stopwatch.startTime, stopwatch.stopTime);
   }
+  if (document.getElementsByClassName('twenty').length < 1) {
+    addTwenty()
+  };
   delete stopwatch.stopTime;
 }
 
@@ -33,8 +36,6 @@ function resetTwenty () {
   delete stopwatch.stopTime;
   delete stopwatch.startTime;
   startTiming();
-  count+=1;
-  console.log(count);
 }
 
 var stopwatch = {};
@@ -68,41 +69,46 @@ function twoDigitPadding(number) {
 function setTime(start, end) {
   if (start > end) { throw 'start time is after end time'; }
   return toReadableTime(timeDifference(start, end));
+
 }
 
 function setHours (start, end) {
-  return getHours(timeDifference(start, end));
+	return getHours(timeDifference(start, end));
 }
 
 function replaceDomElementContent(text, element) {
-  element.innerText = text;
+	element.innerText = text;
 }
 
 function get(element) {
-  if (element) {
-    return document.getElementById(element);
-  }
+	if (element) {
+		return document.getElementById(element);
+	}
 }
 
 function addTimeToDom() {
-  var clock = setTime(stopwatch.startTime, stopwatch.stopTime || getTime());
-  replaceDomElementContent(clock, get('display'));
-  if (!hasStart(stopwatch)) { // if empty start then reset display to 0
-    replaceDomElementContent(setTime(0, 0), get('display'));
-  }
+	var clock = setTime(stopwatch.startTime, stopwatch.stopTime || getTime());
+	replaceDomElementContent(clock, get('display'));
+	if (!hasStart(stopwatch)) { // if empty start then reset display to 0
+		replaceDomElementContent(setTime(0, 0), get('display'));
+	}
 
-  if(clock === '00:05') {
-    addTwenty();
-    resetTwenty();
-  }
+	if (clock === '20:00') {
+		addTwenty();
+		resetTwenty();
+	}
+	if (document.getElementsByClassName('twenty').length == 4) {
+		stopTiming();
+	}
 }
 
 function createTwentyElement(start, end, className) {
-  var twenty = document.createElement('div');
-  twenty.className += className || 'twenty';
-  var twentyNumber = document.getElementsByClassName('twenty').length + 1;
-  twenty.innerText = "You should ask help from " + twentyNumber; 
-  return twenty;
+	var twenty = document.createElement('div');
+	twenty.className += className || 'twenty';
+	var twentyText= ["Try to solve the problem yourself","You should ask for help to your team or to your cohort","You should ask for help to a mentor","I hope you solved your problem by now"];
+	var twentyI = document.getElementsByClassName('twenty').length;
+  	twenty.innerText = twentyText[twentyI]; 
+  	return twenty;
 }
 
 function addTwenty() {

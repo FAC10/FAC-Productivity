@@ -8,10 +8,56 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: .5em;
+  padding: 1.2em 1.2em 0em 1.2em;
+}
+
+.header_right {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  border-radius: 50%;
+  height: 4.5em;
+  width: 4.5em;
+}
+
+.welcome_msg {
+  margin-right: .5em;
 }
 
 .profile_img {
+  border-radius: 50%;
+  height: 4.5em;
+  width: 4.5em;
+  cursor: pointer;
+}
+
+/*add dropdown log out option */
+.dropdown_content {
+  visibility: hidden;
+}
+
+.logout_btn {
+  padding: .5em;
+  border-radius: .2em;
+  border: none;
+  background: rgb(255,205,113);
+  width: 100%;
+  margin-bottom: .4em;
+}
+
+.logout_btn:hover, .logout_btn:focus {
+  color: white;
+}
+
+.dropdown:hover .dropdown_content, .dropdown:focus .dropdown_content {
+  visibility: visible;
+}
+
+.dropdown:hover .profile_img, .dropdown:focus .profile_img {
+  border: .1em solid white;
+  box-sizing: border-box;
 }
 
 h1 {
