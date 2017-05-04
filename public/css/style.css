@@ -66,16 +66,52 @@ h1 {
 
 footer {
   background: #F67374;
-  display: flex;
-  justify-content: center;
+  padding: 1rem;
 }
 
 .github_link {
   background: rgb(255,205,113);
-  padding: 1em;
-  line-height: 1.5em;
-  margin: 2em;
+  font-size: 1.3rem;
+  outline: none;
+  border: none;
+  display: block;
+  padding: 1em 1em;
+  margin: 0 auto;
+  background-size: 0%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('/images/star.svg');
+  transition: 0.3s background cubic-bezier(0.7, 0.43, 0.68, 1.58), 0.5s color ease;
+  position: relative;
+  color: #B54849;
 }
+
+.github_link:hover {
+  background-size: 35%;
+  color: rgba(0,0,0,0);
+}
+
+.github_link::after {
+    content: '';
+    position: absolute;
+    border-bottom: 5px solid transparent;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform: scale3d(0,1,1);
+    transition: transform 0.5s;
+  }
+
+  .github_link:hover::after {
+    width: 100%;
+    border-bottom-color: #B54849;
+
+    transform: scale3d(1,1,1); // Show full-size
+  }
 
 /*landing page styles*/
 
