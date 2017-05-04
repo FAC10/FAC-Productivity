@@ -59,7 +59,6 @@ module.exports = {
           const isFacMember = Boolean(orgs.find(org => org.id === githubOrgId));
 
           if (isFacMember) {
-            console.log(isFacMember, 'YOU TRUE?');
             req.cookieAuth.set({
               name: userInfo.name,
               avatar: userInfo.avatar_url,
