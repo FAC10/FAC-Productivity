@@ -1,9 +1,6 @@
 module.exports = {
   method: 'GET',
-  path: '/',
-  config: {
-    auth: { mode: 'try' },
-  },
+  path: '/home',
   handler: (req, reply) => {
     reply.view('home');
   },
