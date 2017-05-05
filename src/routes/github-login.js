@@ -9,7 +9,7 @@ module.exports = {
   handler: (req, reply) => {
     const queryParams = {
       client_id: process.env.CLIENT_ID,
-      scope: 'user',
+      scope: 'user,repo',
     };
 
     const query = qs.stringify(queryParams);
