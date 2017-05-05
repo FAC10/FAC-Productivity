@@ -86,9 +86,13 @@ footer {
   color: #B54849;
 }
 
-.github_link:hover {
+.github_link:hover, .github_link:focus {
   background-size: 35%;
   color: rgba(0,0,0,0);
+}
+
+.github_link:active {
+  background-size: 60%;
 }
 
 .github_link::after {
@@ -103,10 +107,10 @@ footer {
     height: 100%;
     transform-origin: center;
     transform: scale3d(0,1,1);
-    transition: transform 0.5s;
+    transition: transform 0.3s;
   }
 
-  .github_link:hover::after {
+  .github_link:hover::after, .github_link:focus::after {
     width: 100%;
     border-bottom-color: #B54849;
 
@@ -160,22 +164,21 @@ footer {
 .apps {
   width: 100%;
   margin: 0 auto;
-  max-width: 92rem;
-  font-size: 0;
+  max-width: 90%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
+  grid-gap: 4em;
 }
 
 .app {
   margin: .5em;
   background-color: #F5F5F5;
-  width: 19rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-  min-height: 25.4rem;
   text-decoration: none;
   transition: 0.3s all ease;
 
@@ -198,13 +201,11 @@ footer {
 .app__image--lpop {
   background-color: #FBE9A1;
   background-image: url('/images/lolipop.jpg');
-  background-size: 55%;
 }
 
 .app__image--202020 {
   background-color: #B0E8AE;
   background-image: url('/images/clock.jpg');
-  background-size: 50%;
 }
 
 .app__image--add {
