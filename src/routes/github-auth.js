@@ -36,17 +36,24 @@ module.exports = {
 
       const userUrl = 'https://api.github.com/user';
       const orgsUrl = 'https://api.github.com/user/orgs';
+      const starsUrl = 'https://api.github.com/user/starred/yvonne-liu/FAC-Hardware';
+      const starCountUrl = 'https://api.github.com/repos/yvonne-liu/FAC-Hardware/stargazers';
 
       const requestUser = partial(request.get, { url: userUrl, headers });
       const requestOrgs = partial(request.get, { url: orgsUrl, headers });
+      const requestStars = partial(request.get, { url: starsUrl, headers });
+      const requestStarCount = partial(request.get, { url: starCountUrl, headers });
 
-      parallel([requestOrgs, requestUser], (err, [orgs, user]) => {
+      parallel([requestOrgs, requestUser, requestStars, requestStarCount], (err, [orgs, user, stars, numStars]) => {
         if (err) {
           return reply.view('error', { error: 'Invalid response from Github.' });
         }
 
         const userInfo = JSON.parse(user[1]);
         const orgsInfo = JSON.parse(orgs[1]);
+        const isStarred = stars[0].headers.status === '204 No Content';
+        const starCount = JSON.parse(numStars[1]).length;
+
         const facOrgId = 9970257;
         const isFacMember = orgsInfo.find(org => org.id === facOrgId);
 
@@ -55,6 +62,8 @@ module.exports = {
             name: userInfo.name,
             avatar: userInfo.avatar_url,
             access_token,
+            isStarred,
+            starCount,
           });
           return reply.redirect('/home');
         }

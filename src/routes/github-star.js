@@ -21,11 +21,30 @@ module.exports = {
     };
 
 
-    const starRepo = request.put(options, (err, response, body) => {
-      if (err) {
-        reply().code(404);
+    request.put(options, (err, response, body) => {
+      if (err || response.headers.status !== '204 No Content') {
+        return reply({ success: false }).code(404);
       }
-      reply.view('home');
+
+      const starsOptions = {
+        headers,
+        url: 'https://api.github.com/repos/yvonne-liu/FAC-Hardware',
+      };
+
+
+      request.get(starsOptions, (err, response, body) => {
+        const starCount = JSON.parse(body).stargazers_count;
+
+        req.cookieAuth.set({
+          name: req.auth.credentials.name,
+          avatar: req.auth.credentials.avatar,
+          access_token: accessToken,
+          isStarred: true,
+          starCount,
+        });
+
+        reply({ starCount });
+      });
     });
   },
 };
