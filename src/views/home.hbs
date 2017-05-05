@@ -1,22 +1,4 @@
-  <header>
-    <img class="logo" src="" alt ="fac logo">
-  <div class="header_right">
-    <h4 class="welcome_msg">Welcome back,</br>{{credentials.name}}!</h4>
-
-      <div class="dropdown">
-        <img class="profile_img" src={{credentials.avatar}} alt="user profile image">
-      <div class="dropdown_content">
-
-        <a href="#" class="dropdown_link">
-          <button type="button" name="button" class="logout_btn">
-            log out</button>
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-  </header>
+{{>homeheader}}
 
   <section class="apps_intro">
     <p class="apps_intro__text">Welcome to our hardware projects! These projects can be used online or connected to an LED display.</p>
@@ -31,7 +13,7 @@
     <p class="app__text">Lpop is like selecting a name out of a hat. It’s useful for picking random class members to answer a question or demo their work.</p>
   </a>
 
-  <a href="#" class="app">
+  <a href="/twenty" class="app">
     <div class="app__image app__image--202020"></div>
     <h1 class="app__title">20:20:20</h1>
     <p class="app__text">Should I ask for help?</p>

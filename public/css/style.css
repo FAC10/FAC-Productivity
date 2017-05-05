@@ -17,6 +17,12 @@ header {
 }
 
 .logo {
+  height: 4.5em;
+  width: auto;
+  border-radius: 5%;
+}
+
+.back_btn {
   border-radius: 50%;
   height: 4.5em;
   width: 4.5em;
@@ -40,7 +46,7 @@ header {
 
 .logout_btn {
   padding: .5em;
-  border-radius: .2em;
+  border-radius: 5%;
   border: none;
   background: rgb(255,205,113);
   width: 100%;
@@ -125,6 +131,12 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center; 
+}
+
+.landing_logo {
+  width: 12em;
+  height: auto;
 }
 
 .landing_heading {
@@ -133,6 +145,11 @@ footer {
 
 .landing_text {
   margin: 1em;
+  visibility: hidden;
+}
+
+.landing_qn:hover .landing_text, .landing_qn:focus .landing_text {
+  visibility: visible;
 }
 
 #login {

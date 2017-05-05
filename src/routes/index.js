@@ -4,4 +4,5 @@ module.exports = [
   './github-auth',
   './landing',
   './public',
+  './twenty',
 ].map(require);
