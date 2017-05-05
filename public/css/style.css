@@ -172,16 +172,16 @@ footer {
 /*apps homepage styles*/
 .apps_intro {
   background-color: #F5F5F5;
-  width: 42rem;
-  margin: 4rem auto;
-  padding: .5rem 2rem;
+  width: 42em;
+  margin: 4em auto;
+  padding: .5em 2em;
   box-sizing: border-box;
   color: rgba(0,0,0,0.7)
 }
 
 .apps_intro__text {
   font-family: 'Hind', sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.3em;
   padding: 0;
 }
 
@@ -204,8 +204,8 @@ footer {
   margin: .5em;
   background-color: #F5F5F5;
 
-  margin-bottom: 3rem;
-  padding-bottom: 2rem;
+  margin-bottom: 3em;
+  padding-bottom: 2em;
   box-sizing: border-box;
   vertical-align: top;
   text-decoration: none;
@@ -221,7 +221,7 @@ footer {
 .app__image {
   background-color: #F5F5F5;
   width: 100%;
-  height: 12rem;
+  height: 12em;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -243,23 +243,23 @@ footer {
 }
 
 .app__title {
-  font-size: 1.3rem;
+  font-size: 1.3em;
   margin: 0;
   padding: 0;
-  margin-top: 2rem;
-  margin-bottom: .5rem;
+  margin-top: 2em;
+  margin-bottom: .5em;
   color: #F57373;
   text-align: center;
   font-family: 'Hind', sans-serif;
 }
 
 .app__text {
-  font-size: 1rem;
+  font-size: 1em;
   margin: 0;
   padding: 0;
   text-align: center;
   color: rgba(0,0,0,.7);
-  padding: 0 2rem;
+  padding: 0 2em;
   font-family: 'Open Sans', sans-serif;
 }
 
