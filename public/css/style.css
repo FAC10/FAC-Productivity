@@ -1,6 +1,7 @@
 html, body {
   margin: 0 auto;
   font-family: helvetica;
+  background: #fffaf0;
 }
 
 header {
@@ -72,7 +73,8 @@ h1 {
 
 footer {
   background: #F67374;
-  padding: 1rem;
+  padding: 1em;
+  min-height: 10vh;
 }
 
 .github_star_link {
@@ -126,7 +128,7 @@ footer {
 /*landing page styles*/
 
 .landing {
-  min-height: 85vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -142,6 +144,7 @@ footer {
 .landing_logo {
   width: 12em;
   height: auto;
+  border-radius: 10%;
 }
 
 .landing_heading {
