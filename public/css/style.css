@@ -75,7 +75,7 @@ footer {
   padding: 1rem;
 }
 
-.github_link {
+.github_star_link {
   background: rgb(255,205,113);
   font-size: 1.3rem;
   outline: none;
@@ -92,16 +92,16 @@ footer {
   color: #B54849;
 }
 
-.github_link:hover, .github_link:focus {
+.github_star_link:hover, .github_star_link:focus {
   background-size: 35%;
   color: rgba(0,0,0,0);
 }
 
-.github_link:active {
+.github_star_link:active {
   background-size: 60%;
 }
 
-.github_link::after {
+.github_star_link::after {
     content: '';
     position: absolute;
     border-bottom: 5px solid transparent;
@@ -116,7 +116,7 @@ footer {
     transition: transform 0.3s;
   }
 
-  .github_link:hover::after, .github_link:focus::after {
+  .github_star_link:hover::after, .github_star_link:focus::after {
     width: 100%;
     border-bottom-color: #B54849;
 
@@ -126,12 +126,17 @@ footer {
 /*landing page styles*/
 
 .landing {
-  min-height: 80vh;
+  min-height: 85vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center; 
+  text-align: center;
+}
+
+.landing_text {
+  width: 80%;
+  max-width: 40em;
 }
 
 .landing_logo {
@@ -143,16 +148,20 @@ footer {
   margin: 0;
 }
 
-.landing_text {
+.landing_info {
   margin: 1em;
-  visibility: hidden;
+  display: none;
 }
 
-.landing_qn:hover .landing_text, .landing_qn:focus .landing_text {
-  visibility: visible;
+.landing_qn {
+  cursor: pointer;
 }
 
-#login {
+.landing_qn:hover .landing_info, .landing_qn:focus .landing_info {
+  display: inline-block;
+}
+
+.login_with_github {
   background: rgb(230,121,121);
   margin-bottom: 1em;
 }
