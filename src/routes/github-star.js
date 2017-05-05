@@ -12,6 +12,7 @@ module.exports = {
     const headers = {
       'User-Agent': 'fac-apps',
       Authorization: `token ${accessToken}`,
+      'Content-Length': 0,
     };
 
     const options = {
@@ -24,8 +25,7 @@ module.exports = {
       if (err) {
         reply().code(404);
       }
-      console.log(body);
-      reply.view('landing');
+      reply.view('home');
     });
   },
 };
