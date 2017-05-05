@@ -17,9 +17,9 @@ header {
 }
 
 .logo {
-  border-radius: 50%;
   height: 4.5em;
-  width: 4.5em;
+  width: auto;
+  border-radius: 5%;
 }
 
 .back_btn {
@@ -46,7 +46,7 @@ header {
 
 .logout_btn {
   padding: .5em;
-  border-radius: .2em;
+  border-radius: 5%;
   border: none;
   background: rgb(255,205,113);
   width: 100%;
@@ -72,16 +72,56 @@ h1 {
 
 footer {
   background: #F67374;
-  display: flex;
-  justify-content: center;
+  padding: 1rem;
 }
 
 .github_link {
   background: rgb(255,205,113);
-  padding: 1em;
-  line-height: 1.5em;
-  margin: 2em;
+  font-size: 1.3rem;
+  outline: none;
+  border: none;
+  display: block;
+  padding: 1em 1em;
+  margin: 0 auto;
+  background-size: 0%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-image: url('/images/star.svg');
+  transition: 0.3s background cubic-bezier(0.7, 0.43, 0.68, 1.58), 0.5s color ease;
+  position: relative;
+  color: #B54849;
 }
+
+.github_link:hover, .github_link:focus {
+  background-size: 35%;
+  color: rgba(0,0,0,0);
+}
+
+.github_link:active {
+  background-size: 60%;
+}
+
+.github_link::after {
+    content: '';
+    position: absolute;
+    border-bottom: 5px solid transparent;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform: scale3d(0,1,1);
+    transition: transform 0.3s;
+  }
+
+  .github_link:hover::after, .github_link:focus::after {
+    width: 100%;
+    border-bottom-color: #B54849;
+
+    transform: scale3d(1,1,1); // Show full-size
+  }
 
 /*landing page styles*/
 
@@ -91,6 +131,12 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center; 
+}
+
+.landing_logo {
+  width: 12em;
+  height: auto;
 }
 
 .landing_heading {
@@ -99,6 +145,11 @@ footer {
 
 .landing_text {
   margin: 1em;
+  visibility: hidden;
+}
+
+.landing_qn:hover .landing_text, .landing_qn:focus .landing_text {
+  visibility: visible;
 }
 
 #login {
@@ -130,22 +181,21 @@ footer {
 .apps {
   width: 100%;
   margin: 0 auto;
-  max-width: 92rem;
-  font-size: 0;
+  max-width: 90%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
+  grid-gap: 4em;
 }
 
 .app {
   margin: .5em;
   background-color: #F5F5F5;
-  width: 19rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
+
   margin-bottom: 3rem;
   padding-bottom: 2rem;
-  display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-  min-height: 25.4rem;
   text-decoration: none;
   transition: 0.3s all ease;
 
@@ -168,13 +218,11 @@ footer {
 .app__image--lpop {
   background-color: #FBE9A1;
   background-image: url('/images/lolipop.jpg');
-  background-size: 55%;
 }
 
 .app__image--202020 {
   background-color: #B0E8AE;
   background-image: url('/images/clock.jpg');
-  background-size: 50%;
 }
 
 .app__image--add {
