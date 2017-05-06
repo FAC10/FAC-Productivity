@@ -9,7 +9,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 1.2em 1.2em 0em 1.2em;
+  padding: 1.2em 1.2em 1.2em 1.2em;
 }
 
 .header_right {
@@ -18,15 +18,20 @@ header {
 }
 
 .logo {
-  height: 4.5em;
-  width: auto;
-  border-radius: 5%;
+  height: 5.5em;
+  width: 5.5em;
+  border-radius: 50%;
+  background-color: #eb6869;
+  background-image: url('/images/logo.jpg');
+  background-size: 60%;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .back_btn {
   border-radius: 50%;
-  height: 4.5em;
-  width: 4.5em;
+  height: 5.5em;
+  width: 5.5em;
 }
 
 .welcome_msg {
@@ -35,9 +40,14 @@ header {
 
 .profile_img {
   border-radius: 50%;
-  height: 4.5em;
-  width: 4.5em;
+  height: 5.5em;
+  width: 5.5em;
   cursor: pointer;
+}
+
+.profile_dropdown {
+  position: absolute;
+  display: none;
 }
 
 /*add dropdown log out option */
@@ -155,63 +165,119 @@ footer {
 
 /*landing page styles*/
 
-.landing {
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.landing_text {
-  width: 80%;
-  max-width: 40em;
-}
-
 .landing_logo {
   width: 12em;
   height: auto;
   border-radius: 10%;
+  margin: 0 auto;
+  display: block;
 }
 
 .landing_heading {
-  margin: 0;
+  margin: 1em 0 0 0;
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(230,121,121);
 }
 
-.landing_info {
-  margin: 1em;
-  display: none;
+.landing_heading__sub {
+  font-size: 1.5rem;
+  display: block;
 }
 
-.landing_qn {
-  cursor: pointer;
-}
-
-.landing_qn:hover .landing_info, .landing_qn:focus .landing_info {
-  display: inline-block;
+.login_with_github_wrap {
+  text-align: center;
+  width: 100%;
 }
 
 .login_with_github {
   background: rgb(230,121,121);
-  margin-bottom: 1em;
+  margin: 1em 0 1em 0;
+  background-image: url('/images/github-logo.svg');
+  background-size: 17%;
+  background-position: 5.5% center;
+  border-radius: .3rem;
+  color: white;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  font-size: 1.3rem;
+  padding: 1rem 1rem 1rem 4rem;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+  transition: 0.3s all ease;
+}
+
+.login_with_github:focus, .login_with_github:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.14), 0 6px 6px rgba(0,0,0,0.15);
+}
+
+.login_with_github__text {
+  color: white;
+}
+
+.landing__info__wrap {
+  max-width: 30em;
+  margin: 3em auto;
+  border-radius: 1em;
+  border: 0.3em solid rgb(230,121,121);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.landing__info {
+  width: auto;
+  height: auto;
+  border-radius: .75em;
+  background-color: rgb(230,121,121);
+  max-width: 1.5em;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  font-size: 1.8em;
+  line-height: 1.5em;
+  color: white;
+  text-align: center;
+  margin: .5em auto 1em auto;
+  transition: .3s all ease;
+  box-sizing: border-box;
+  display: block;
+}
+
+.landing__info--active {
+  text-align: left;
+  font-size: 1.3rem;
+  color: white;
+  background-color: rgb(230,121,121);
+  border-radius: 0;
+  min-width: 100%;
+  min-height: 8em;
+  padding: 1em;
+  transition: .2s all cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin: 0 auto;
+}
+
+.hiddenIntro {
+  display: none;
 }
 
 .gradient_bulb_glow {
-    background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
-    background: -o-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Opera 11.6 to 12.0 */
-    background: -moz-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Fx 3.6 to 15 */
-    background: radial-gradient(circle at center 10vh, white, white, #ffcd71); /* Standard syntax (must be last) */
+  padding-top: 5em;
+  box-sizing: border-box;
+  height: 100vh;
+  background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, white, #ffcd71); /* Standard syntax (must be last) */
 }
 
 /*apps homepage styles*/
 .apps_intro {
-  background-color: #F5F5F5;
+  background-color: #fff;
   width: 42em;
   margin: 4em auto;
   padding: .5em 2em;
   box-sizing: border-box;
-  color: rgba(0,0,0,0.7)
+  color: rgba(0,0,0,0.7);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
 }
 
 .apps_intro__text {
@@ -237,7 +303,7 @@ footer {
 
 .app {
   margin: .5em;
-  background-color: #F5F5F5;
+  background-color: #fff;
 
   margin-bottom: 3em;
   padding-bottom: 2em;
@@ -292,7 +358,7 @@ footer {
   font-size: 1em;
   margin: 0;
   padding: 0;
-  text-align: center;
+  text-align: left;
   color: rgba(0,0,0,.7);
   padding: 0 2em;
   font-family: 'Open Sans', sans-serif;

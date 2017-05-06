@@ -1,19 +1,14 @@
 <article class="landing gradient_bulb_glow">
   <img src="./images/logo.jpg" alt="Light bulb logo" class="landing_logo">
-  <div class="landing_text">
-  <h1 class="landing_heading">Founders and Coders</h1>
-  <h2 class="landing_heading">Productivity Apps</h2>
-    </br>
-    <img src="./public/images/github-logo.svg" alt="GitHub logo" class="github_logo">
-  {{> github-login}}
-  <p class="landing_qn">&#9432;</br>
-    <span class="landing_info">
-    Welcome to Founders and Coders Productivity Apps! This platform is full of learning hacks based on tried and tested techniques from our <a href="https://foundersandcoders.com/">coding bootcamps</a>.</br>
-    Our apps help students to structure their time and allocate tasks while they are coding, so that they remain productive and positive. A can-do attitude is the backbone of our peer-lead environment, and the secret to our success as Europe's only free coding bootcamp.</span>
-  </p>
+  <div class="landing__info__wrap">
+    <h1 class="landing_heading">Founders and Coders
+      <span class="landing_heading__sub">Productivity Apps</span>
+    </h1>
+    {{> github-login}}
+    <div class="landing__info">i</div>
+    <div class="hiddenIntro">Welcome to Founders and Coders Productivity Apps! This platform is full of learning hacks based on tried and tested techniques from our <a href="https://foundersandcoders.com/">coding bootcamps</a>.
+    </div>
   </div>
 </article>
 
-<footer>
-  <button type="button" name="button" class="github_star_link">Github repo</button>
-</footer>
+<script src='/js/home.js'></script>

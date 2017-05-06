@@ -1,7 +1,4 @@
-console.log('hi');
-
 const button = document.querySelector('.github_star_link');
-
 
 const setStars = (starCount, element) => {
   element.innerText = starCount;
