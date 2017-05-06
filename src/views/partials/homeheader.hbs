@@ -1,12 +1,10 @@
 <header>
   <div class="logo"></div>
-<div class="header_right">
-  <h4 class="welcome_msg">Welcome back,</br>{{credentials.name}}!</h4>
+  <div class="header_right">
+    <h4 class="welcome_msg">Welcome,<span class="welcome_msg__name">{{credentials.name}}!</span></h4>
 
-  <img class="profile_img" src={{credentials.avatar}} alt="user profile image">
-</div>
-
-<a href="#" class="profile_dropdown">
-  <button type="button" name="button" class="logout_btn">log out</button>
-</a>
+    <div class="profile_img" style="background-image: url('{{credentials.avatar}}');" alt="user profile image">
+      <a href="#" class="profile__logout">sign out</a>
+    </div>
+  </div>
 </header>
