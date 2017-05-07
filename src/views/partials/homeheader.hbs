@@ -3,8 +3,6 @@
   <div class="header_right">
     <h4 class="welcome_msg">Welcome,<span class="welcome_msg__name">{{credentials.name}}!</span></h4>
 
-    <div class="profile_img" style="background-image: url('{{credentials.avatar}}');" alt="user profile image">
-      <a href="#" class="profile__logout">sign out</a>
-    </div>
+    {{> profile-image}}
   </div>
 </header>

@@ -5,5 +5,6 @@ module.exports = [
   './github-star',
   './landing',
   './public',
-  './twenty',
+  './app-twenty',
+  './app-pomodoro',
 ].map(require);
