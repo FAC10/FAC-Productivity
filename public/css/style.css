@@ -361,17 +361,17 @@ footer {
 
 .app__image--lpop {
   background-color: #FBE9A1;
-  background-image: url('/images/lolipop.jpg');
+  background-image: url('/images/lolipop.png');
 }
 
 .app__image--202020 {
   background-color: #B0E8AE;
-  background-image: url('/images/clock.jpg');
+  background-image: url('/images/clock.png');
 }
 
 .app__image--add {
   background-color: #96E7E0;
-  background-image: url('/images/plus.jpg');
+  background-image: url('/images/plus.png');
 }
 
 .app__title {
