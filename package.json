@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/start",
     "dev": "nodemon src/start",
-    "test": "node tests/index.js | tap-spec"
+    "test": "node tests/index.js | tap-spec",
+    "coverage": "istanbul cover tests/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,8 @@
   },
   "homepage": "https://github.com/yvonne-liu/FAC-Hardware#readme",
   "dependencies": {
+    "codecov": "^2.1.0",
+    "istanbul": "^0.4.5",
     "env2": "^2.1.1",
     "handlebars": "^4.0.8",
     "hapi": "^16.1.1",
