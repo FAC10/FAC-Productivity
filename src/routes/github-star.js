@@ -3,9 +3,6 @@ const request = require('request');
 module.exports = {
   method: 'GET',
   path: '/star',
-  config: {
-    auth: { mode: 'try' },
-  },
   handler: (req, reply) => {
     const accessToken = req.auth.credentials.access_token;
 
