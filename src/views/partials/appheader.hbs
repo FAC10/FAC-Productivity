@@ -1,19 +1,7 @@
 <header>
   <a href="/home"><img class="back_btn" src="./images/backbutton.png" alt ="back button"></a>
+
 <div class="header_right">
-  <h4 class="welcome_msg">Hello,</br>{{credentials.name}}!</h4>
-
-    <div class="dropdown">
-      <img class="profile_img" src={{credentials.avatar}} alt="user profile image">
-    <div class="dropdown_content">
-
-      <a href="#" class="dropdown_link">
-        <button type="button" name="button" class="logout_btn">
-          log out</button>
-      </a>
-
-    </div>
-  </div>
-
+  {{> profile-image}}
 </div>
 </header>
