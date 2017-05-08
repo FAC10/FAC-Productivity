@@ -1,4 +1,4 @@
-const pomodoro = (workLen, breakLen, onSwitchFunc) => {
+module.exports = (workLen, breakLen, onSwitchFunc) => {
   let startTime = null;
   let pausedAt = null;
   let isWork = true;
@@ -14,16 +14,16 @@ const pomodoro = (workLen, breakLen, onSwitchFunc) => {
   const setPause = (pause) => { pausedAt = difference(startTime, pause); };
   const getPause = () => pausedAt;
 
-  const update = () => {
-    getStart() ? '' : setStart(Date.now());
-    const time = difference(startTime, Date.now());
+  const update = (currentTime) => {
+    getStart() ? '' : setStart(currentTime);
+    const time = difference(startTime, currentTime);
     const amountComplete = isWork ?
       fractionComplete(time, workLen) :
       fractionComplete(time, breakLen);
     const swap = isWork ? checkIfSwitch(time, workLen) : checkIfSwitch(time, breakLen);
     if (swap) {
       isWork = !isWork;
-      setStart(Date.now());
+      setStart(currentTime);
       onSwitchFunc(isWork);
       return { time: 0, amountComplete: 0 };
     }

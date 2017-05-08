@@ -1,23 +1,22 @@
-function getTime() { return Date.now(); }
-function hasStart(obj) { return obj.hasOwnProperty('startTime'); }
-function hasStop(obj) { return obj.hasOwnProperty('stopTime'); }
+const hasStart = obj => obj.hasOwnProperty('startTime');
+const hasStop = obj => obj.hasOwnProperty('stopTime');
 
-function startTiming() {
+const startTiming = () => {
   if (!hasStart(stopwatch)) {
-    stopwatch.startTime = getTime();
+    stopwatch.startTime = Date.now();
   }
   if (hasStop(stopwatch)) {
-    stopwatch.startTime = getTime() - timeDifference(stopwatch.startTime, stopwatch.stopTime);
+    stopwatch.startTime = Date.now() - timeDifference(stopwatch.startTime, stopwatch.stopTime);
   }
   if (document.getElementsByClassName('twenty').length < 1) {
     addTwenty();
   }
   delete stopwatch.stopTime;
-}
+};
 
 function stopTiming() {
   if (!hasStop(stopwatch) && hasStart(stopwatch)) {
-    stopwatch.stopTime = getTime();
+    stopwatch.stopTime = Date.now();
   }
 }
 
@@ -86,7 +85,7 @@ function get(element) {
 }
 
 function addTimeToDom() {
-  const clock = setTime(stopwatch.startTime, stopwatch.stopTime || getTime());
+  const clock = setTime(stopwatch.startTime, stopwatch.stopTime || Date.now());
   replaceDomElementContent(clock, get('display'));
   if (!hasStart(stopwatch)) { // if empty start then reset display to 0
     replaceDomElementContent(setTime(0, 0), get('display'));
@@ -112,7 +111,7 @@ function createTwentyElement(start, end, className) {
 
 function addTwenty() {
   if (hasStart(stopwatch) && !hasStop(stopwatch)) {
-    const twenty = createTwentyElement(stopwatch.startTime, getTime());
+    const twenty = createTwentyElement(stopwatch.startTime, Date.now());
     document.getElementById('twentycontainer').appendChild(twenty);
   }
 }
