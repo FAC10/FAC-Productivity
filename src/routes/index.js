@@ -5,5 +5,9 @@ module.exports = [
   './github-star',
   './landing',
   './public',
-  './twenty',
+  './app-twenty',
+  './app-pomodoro',
+  './app-lollipop',
+  './app-add',
+  './logout',
 ].map(require);

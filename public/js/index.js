@@ -14,3 +14,10 @@ button.addEventListener('click', () => {
       console.log(err);
     });
 });
+
+const profile = document.querySelector('.profile_img');
+const logout = document.querySelector('.profile__logout');
+logout.addEventListener('click', e => e.stopPropagation());
+profile.addEventListener('click', () => {
+  logout.classList.toggle('profile__logout--active');
+});
