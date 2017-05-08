@@ -15,7 +15,7 @@ module.exports = (workLen, breakLen, onSwitchFunc) => {
   const getPause = () => pausedAt;
 
   const update = (currentTime) => {
-    getStart() ? '' : setStart(Date.now());
+    getStart() ? '' : setStart(currentTime);
     const time = difference(startTime, currentTime);
     const amountComplete = isWork ?
       fractionComplete(time, workLen) :
@@ -23,7 +23,7 @@ module.exports = (workLen, breakLen, onSwitchFunc) => {
     const swap = isWork ? checkIfSwitch(time, workLen) : checkIfSwitch(time, breakLen);
     if (swap) {
       isWork = !isWork;
-      setStart(Date.now());
+      setStart(currentTime);
       onSwitchFunc(isWork);
       return { time: 0, amountComplete: 0 };
     }

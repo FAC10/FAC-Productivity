@@ -6,7 +6,7 @@ const runTest = (isWork) => {
     t.end();
   });
 };
-const p = pomo(10000, 15000, runTest);
+const p = pomo(10, 15, runTest);
 
 test('Pomodoro.js getStart and setStart', (t) => {
   t.equal(p.getStart(), null, 'getStart should initial with null');
@@ -55,11 +55,25 @@ test('Pomodoro.js getPause ', (t) => {
 });
 
 test('Pomodoro.js update function', (t) => {
-  p.setStart(100);
-  let expected = 400;
-  t.deepEqual(p.update(500).time, expected, 'The update time should be 100 with start time 100 and update time 400');
   p.setStart(1);
-  expected = 0.4999;
-  t.deepEqual(p.update(5000).amountComplete, expected, 'THe amount completed is the correct fraction time');
+  let expected = 8;
+  t.deepEqual(p.update(9).time, expected, 'The update time should be 8 with start time 1 and update time 9');
+  p.setStart(1);
+  expected = 0.8;
+  t.deepEqual(p.update(9).amountComplete, expected, 'amountCompleted is the correct fraction of time');
+
+  p.update();
+  let start = 2;
+  start += 10;
+  t.deepEqual(p.update(start).time, 0, 'Should return 0 on the first update with a switch');
+
+  start += 1;
+  t.deepEqual(p.update(start).time, 1, 'First update after a call should return the difference the argument and the switch');
+
+  start += 15;
+  t.deepEqual(p.update(start).time, 0, 'Should return 0 on the first update after the second switch');
+
+  start += 1;
+  t.deepEqual(p.update(start).time, 1, 'First update after second switch should return the difference between the argument and the switch');
   t.end();
 });

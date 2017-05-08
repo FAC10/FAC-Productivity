@@ -5,7 +5,7 @@ const pomoDom = (() => {
   const pause = document.querySelector('.pomodoro__pause');
 
   const update = () => {
-    const { time, amountComplete } = timer.update();
+    const { time, amountComplete } = timer.update(Date.now());
     pomodoroDomInner.style.transform = `scale(1, ${amountComplete})`;
     pomodoroDomText.textContent = timer.toReadableTime(time);
   };
