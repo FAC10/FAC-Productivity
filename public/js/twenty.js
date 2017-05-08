@@ -1,7 +1,7 @@
 const hasStart = obj => obj.hasOwnProperty('startTime');
 const hasStop = obj => obj.hasOwnProperty('stopTime');
 
-const startTiming = () => {
+const startTiming = (stopwatch) => {
   if (!hasStart(stopwatch)) {
     stopwatch.startTime = Date.now();
   }
@@ -14,11 +14,11 @@ const startTiming = () => {
   delete stopwatch.stopTime;
 };
 
-function stopTiming() {
+const stopTiming = (stopwatch) => {
   if (!hasStop(stopwatch) && hasStart(stopwatch)) {
     stopwatch.stopTime = Date.now();
   }
-}
+};
 
 function resetTime() {
   if (hasStop(stopwatch)) {
