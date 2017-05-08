@@ -7,4 +7,5 @@ module.exports = [
   './public',
   './app-twenty',
   './app-pomodoro',
+  './logout',
 ].map(require);
