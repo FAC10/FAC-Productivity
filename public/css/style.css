@@ -422,8 +422,8 @@ footer {
 }
 
 /*lpop app*/
-.lpop {
-  min-height: 80vh;
+.lollipop {
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -460,4 +460,13 @@ footer {
   z-index: 10;
   font-weight: 600;
   transform: scale(1,1);
+}
+
+/*add app page*/
+.add_app {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
