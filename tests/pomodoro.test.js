@@ -63,6 +63,8 @@ test('Pomodoro.js update function', (t) => {
   t.deepEqual(p.update(9).amountComplete, expected, 'amountCompleted is the correct fraction of time');
 
   p.update();
+  p.setStart(0);
+  t.deepEqual(p.update(0).time, 0, 'Should return 0 when there is no value in update');
   let start = 2;
   start += 10;
   t.deepEqual(p.update(start).time, 0, 'Should return 0 on the first update with a switch');

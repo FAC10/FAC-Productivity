@@ -1,2 +1,5 @@
-require('./routes.test');
-require('./pomodoro.test');
+[
+  './routes.test',
+  './pomodoro.test',
+  './utilities.test',
+].forEach(require);
