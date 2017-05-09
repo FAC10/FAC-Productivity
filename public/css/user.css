@@ -1,0 +1,63 @@
+.welcome_msg {
+  margin: .8em .5em 0 0;
+  padding: 0;
+  margin-right: .5em;
+  color: white;
+  font-size: 1.3em;
+  line-height: 1.2em;
+}
+
+.welcome_msg__name {
+  display: block;
+}
+
+.profile_img {
+  border-radius: 50%;
+  height: 5.5em;
+  width: 5.5em;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  border: .3em solid #cf5859;
+}
+
+.profile__logout {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  padding: .5em .8em .7em .8em;
+  text-align: center;
+  font-size: 1em;
+  background-color: #FFCC80;
+  border-radius: .3em;
+  top: 7rem;
+  position: relative;
+  transition: .15s all ease;
+  transform-origin: center top;
+  transform: scale(0,0);
+}
+
+.profile__logout:hover, .profile__logout:focus {
+  color: #B54849;
+}
+
+.profile__logout::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -1em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;
+
+  border-bottom: 1em solid #ffcc80;
+}
+
+.profile__logout--active {
+  transform: scale(1,1)
+}
