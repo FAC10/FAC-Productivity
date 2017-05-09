@@ -1,34 +1,18 @@
-  <header>
-    <img class="logo" src="" alt ="fac logo">
-  <div class="header_right">
-    <h4 class="welcome_msg">Welcome back,</br>{{credentials.name}}!</h4>
-
-      <div class="dropdown">
-        <img class="profile_img" src={{credentials.avatar}} alt="user profile image">
-      <div class="dropdown_content">
-
-        <a href="#" class="dropdown_link">
-          <button type="button" name="button" class="logout_btn">
-            log out</button>
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-  </header>
+{{>homeheader}}
 
   <section class="apps_intro">
-    <p class="apps_intro__text">Welcome to our hardware projects! These projects can be used online or connected to an LED display.</p>
-    <p class="apps_intro__text">Want to find out more and get involved? Star our <a class="apps_intro__link" href="https://github.com/yvonne-liu/FAC-Hardware">GitHub repo</a> to get started.</p>
+    <p class="apps_intro__text">Boost your productivity with these awesome learning tools. They can be used individually or in combo.</p>
+    <p class="apps_intro__text">In the Founders and Coders space, we like to connect the apps to an LED display, so that everyone can get involved. </p>
+    <p class="apps_intro__text">Feel free to check out <a href="https://github.com/yvonne-liu/FAC-Hardware" class="apps_intro__link">our source code</a> on GitHub if you're curious.</p>
+
   </section>
 
   <section class="apps">
 
-  <a href="#" class="app">
+  <a href="/lpop" class="app">
     <div class="app__image app__image--lpop"></div>
-    <h1 class="app__title">lpop</h1>
-    <p class="app__text">Lpop is like selecting a name out of a hat. It’s useful for picking random class members to answer a question or demo their work.</p>
+    <h1 class="app__title">Lollipop</h1>
+    <p class="app__text">Lollipop is like selecting a name out of a hat. It’s useful for picking random class members to answer a question or demo their work.</p>
   </a>
 
   <a href="/twenty" class="app">
@@ -38,23 +22,21 @@
     <p class="app__text">When you hit a wall, research the problem, ask your peers, then ask a mentor, in 20-minute bursts.</p>
   </a>
 
-  <a href="#"  class="app">
+  <a href="/add"  class="app">
+    <div class="app__image app__image--pomodoro"></div>
+    <h1 class="app__title">Pomodoro Timer</h1>
+    <p class="app__text">Work efficiently and remember to take breaks by time-boxing your sessions.</p>
+  </a>
+
+  <a href="/add"  class="app">
     <div class="app__image app__image--add"></div>
     <h1 class="app__title">add an app</h1>
-    <p class="app__text">You are welcome to add your own F&C hardware projects.</p>
+    <p class="app__text">You are welcome to add your own Founders and Coders hardware projects.</p>
     <p class="app__text">Please visit our GitHub repository to find out more.</p>
   </a>
 
-  <article class="app">
-    <div class="app__image"></div>
-  </article>
-
-
   </section>
 
-  <footer>
-    <button type="button" name="button" class="github_link">Github repo</button>
-  </footer>
+  {{> footer}}
 
-</body>
-</html>
+  <script src='/js/index.js'></script>

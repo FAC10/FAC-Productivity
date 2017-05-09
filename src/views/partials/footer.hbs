@@ -1,0 +1,7 @@
+<footer>
+  {{#if credentials.isStarred}}
+  <button type="button" name="button" class="github_star_link github_star_link--starcount">{{credentials.starCount}}</button>
+  {{else}}
+  <button type="button" name="button" class="github_star_link"><div class="github_star_link__starcount">{{credentials.starCount}}</div>Star on Github</button>
+  {{/if}}
+</footer>
