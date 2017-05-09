@@ -1,0 +1,23 @@
+.stopwatch {
+  min-height: 75vh;
+}
+.stopwatch {
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.stopwatch__button {
+  line-height: 1em;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.stopwatch__display {
+  margin-bottom: 1em;
+}

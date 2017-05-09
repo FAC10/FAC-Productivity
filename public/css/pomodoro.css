@@ -1,0 +1,31 @@
+/*pomodoro app*/
+.pomodoro {
+  background-color: rgb(255, 151, 124);
+  width: 20em;
+  height: 17em;
+  border-radius: 50%;
+  border-top-left-radius: 47%;
+  border-top-right-radius: 47%;
+  overflow: hidden;
+  margin: 5em auto 0 auto;
+}
+
+.pomodoro__inner {
+  background-color: #F67374;
+  height: 17em;
+  width: 20em;
+  transform-origin: center bottom;
+  transform: scale(1,0);
+  transition: 0.05s all ease;
+}
+
+.pomodoro__text {
+  margin-top: -10.6rem;
+  text-align: center;
+  font-size: 4em;
+  color: white;
+  display: block;
+  z-index: 10;
+  font-weight: 600;
+  transform: scale(1,1);
+}

@@ -1,0 +1,115 @@
+/*apps homepage styles*/
+.apps_intro {
+  background-color: #fff;
+  width: 42em;
+  max-width: 90%;
+  margin: 4em auto;
+  padding: .5em 2em;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.7);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.apps_intro__text {
+  font-family: 'Hind', sans-serif;
+  font-size: 1.3em;
+  padding: 0;
+  margin-top: 1.1em;
+  line-height: 1.1em;
+}
+
+.apps_intro__link {
+  color: #B54849;
+  text-decoration: none;
+}
+
+.apps_intro__link:hover {
+  text-decoration: underline;
+}
+
+.apps {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 90%;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19em, 1fr));
+  grid-gap: 4em;
+}
+
+.app {
+  margin: .5em;
+  background-color: #fff;
+
+  margin-bottom: 3em;
+  padding-bottom: 2em;
+  box-sizing: border-box;
+  vertical-align: top;
+  text-decoration: none;
+  transition: 0.3s all ease;
+
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.app:hover, .app:focus {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.14), 0 6px 6px rgba(0,0,0,0.15);
+}
+
+.app__image {
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 12em;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.app__image--lpop {
+  background-color: #FBE9A1;
+  background-image: url('/images/lolipop.png');
+}
+
+.app__image--202020 {
+  background-color: #B0E8AE;
+  background-image: url('/images/clock.png');
+}
+
+.app__image--pomodoro {
+  background-color: #FBE9A1;
+  background-image: url('/images/pomodoro.png')
+}
+
+.app__image--add {
+  background-color: #96E7E0;
+  background-image: url('/images/plus.png');
+}
+
+.app__title {
+  font-size: 1.3em;
+  margin: 0;
+  padding: 0;
+  margin-top: 2em;
+  margin-bottom: .5em;
+  color: #F57373;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+}
+
+.app__text {
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: rgba(0,0,0,.7);
+  padding: 0 2em;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*add app page*/
+.add_app {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

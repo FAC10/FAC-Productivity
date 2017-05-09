@@ -1,0 +1,49 @@
+/* general styles */
+
+html, body {
+  margin: 0 auto;
+  font-family: helvetica;
+  background: #fffaf0;
+  font-size: 14px;
+}
+
+header {
+  background: #F67374;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1.2em 5%;
+}
+
+h1 {
+  font-size: 1em;
+}
+
+footer {
+  background: #F67374;
+  padding: 1em;
+}
+
+.header_right {
+  display: flex;
+  flex-direction: row;
+}
+
+.logo {
+  height: 5.5em;
+  width: 5.5em;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url('/images/logo.png');
+  background-size: 66%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: .3em solid #cf5859;
+}
+
+.back_btn {
+  border-radius: 50%;
+  height: 5.5em;
+  border: .3em solid #cf5859;
+  width: 5.5em;
+}

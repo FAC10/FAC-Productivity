@@ -1,0 +1,106 @@
+/*landing page styles*/
+
+.landing_logo {
+  width: 12em;
+  height: auto;
+  border-radius: 10%;
+  margin: 0 auto;
+  display: block;
+}
+
+.landing_heading {
+  margin: 1em 0 0 0;
+  text-align: center;
+  font-size: 2rem;
+  color: rgb(230,121,121);
+}
+
+.landing_heading__sub {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.login_with_github_wrap {
+  text-align: center;
+  width: 100%;
+}
+
+.login_with_github {
+  background: rgb(230,121,121);
+  margin: 1em 0 1em 0;
+  background-image: url('/images/github-logo.svg');
+  background-size: 17%;
+  background-position: 5.5% center;
+  border-radius: .3rem;
+  color: white;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  font-size: 1.3rem;
+  padding: 1rem 1rem 1rem 4rem;
+  display: inline-block;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+  transition: 0.3s all ease;
+}
+
+.login_with_github:focus, .login_with_github:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.14), 0 6px 6px rgba(0,0,0,0.15);
+}
+
+.login_with_github__text {
+  color: white;
+}
+
+.landing__info__wrap {
+  max-width: 30em;
+  margin: 3em auto;
+  border-radius: 1em;
+  border: 0.3em solid rgb(230,121,121);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.landing__info {
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  border-radius: .75em;
+  background-color: rgb(230,121,121);
+  max-width: 1.5em;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  font-size: 1.8em;
+  line-height: 1.5em;
+  color: white;
+  text-align: center;
+  margin: .5em auto 1em auto;
+  transition: .3s all ease;
+  box-sizing: border-box;
+  display: block;
+}
+
+.landing__info--active {
+  text-align: left;
+  font-size: 1.3rem;
+  color: white;
+  background-color: rgb(230,121,121);
+  border-radius: 0;
+  min-width: 100%;
+  min-height: 8em;
+  padding: 1em;
+  transition: .2s all cubic-bezier(0.22, 0.61, 0.36, 1);
+  margin: 0 auto;
+}
+
+.hiddenIntro {
+  display: none;
+}
+
+.gradient_bulb_glow {
+  padding-top: 5em;
+  box-sizing: border-box;
+  height: 100vh;
+  background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, white, #ffcd71); /* Standard syntax (must be last) */
+}
