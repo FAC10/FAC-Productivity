@@ -370,6 +370,11 @@ footer {
   background-image: url('/images/clock.png');
 }
 
+.app__image--pomodoro {
+  background-color: #FBE9A1;
+  background-image: url('/images/pomodoro.png')
+}
+
 .app__image--add {
   background-color: #96E7E0;
   background-image: url('/images/plus.png');
