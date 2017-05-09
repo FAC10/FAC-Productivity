@@ -23,8 +23,8 @@ header {
   width: 5.5em;
   border-radius: 50%;
   background-color: white;
-  background-image: url('/images/logo.jpg');
-  background-size: 50%;
+  background-image: url('/images/logo.png');
+  background-size: 66%;
   background-position: center center;
   background-repeat: no-repeat;
   border: .3em solid #cf5859;
@@ -368,6 +368,11 @@ footer {
 .app__image--202020 {
   background-color: #B0E8AE;
   background-image: url('/images/clock.png');
+}
+
+.app__image--pomodoro {
+  background-color: #FBE9A1;
+  background-image: url('/images/pomodoro.png')
 }
 
 .app__image--add {
