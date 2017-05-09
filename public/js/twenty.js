@@ -1,6 +1,9 @@
 const hasStart = obj => obj.hasOwnProperty('startTime');
 const hasStop = obj => obj.hasOwnProperty('stopTime');
 
+const stopwatch = {};
+const count = 0;
+
 const startTiming = () => {
   if (!hasStart(stopwatch)) {
     stopwatch.startTime = Date.now();
@@ -14,13 +17,13 @@ const startTiming = () => {
   delete stopwatch.stopTime;
 };
 
-function stopTiming() {
+const stopTiming = () => {
   if (!hasStop(stopwatch) && hasStart(stopwatch)) {
     stopwatch.stopTime = Date.now();
   }
-}
+};
 
-function resetTime() {
+const resetTime = () => {
   if (hasStop(stopwatch)) {
     delete stopwatch.stopTime;
     delete stopwatch.startTime;
@@ -29,22 +32,18 @@ function resetTime() {
       twenty.parentElement.removeChild(twenty);
     });
   }
-}
+};
 
-function resetTwenty() {
+const resetTwenty = () => {
   delete stopwatch.stopTime;
   delete stopwatch.startTime;
   startTiming();
-}
+};
 
-var stopwatch = {};
-const count = 0;
 
-function timeDifference(start, current) {
-  return current - start;
-}
+const timeDifference = (start, current) => current - start;
 
-function toReadableTime(time) {
+const toReadableTime = (time) => {
   const ms = time % 1000;
   time -= ms;
   const secs = time % 60000;
@@ -55,36 +54,30 @@ function toReadableTime(time) {
   const minutes = twoDigitPadding(mins / 60000);
 
   return `${minutes}:${seconds}`;
-}
+};
 
-function getHours(ms) {
-  return Math.floor((ms % 216000000) / 3600000);
-}
+const getHours = ms => Math.floor((ms % 216000000) / 3600000);
 
-function twoDigitPadding(number) {
-  return (`00${number}`).substr(-2, 2);
-}
+const twoDigitPadding = number => (`00${number}`).substr(-2, 2);
 
-function setTime(start, end) {
+const setTime = (start, end) => {
   if (start > end) { throw 'start time is after end time'; }
   return toReadableTime(timeDifference(start, end));
-}
+};
 
-function setHours(start, end) {
-  return getHours(timeDifference(start, end));
-}
+const setHours = (start, end) => getHours(timeDifference(start, end));
 
-function replaceDomElementContent(text, element) {
+const replaceDomElementContent = (text, element) => {
   element.innerText = text;
-}
+};
 
-function get(element) {
+const get = (element) => {
   if (element) {
     return document.getElementById(element);
   }
-}
+};
 
-function addTimeToDom() {
+const addTimeToDom = () => {
   const clock = setTime(stopwatch.startTime, stopwatch.stopTime || Date.now());
   replaceDomElementContent(clock, get('display'));
   if (!hasStart(stopwatch)) { // if empty start then reset display to 0
@@ -98,23 +91,23 @@ function addTimeToDom() {
   if (document.getElementsByClassName('twenty').length == 4) {
     stopTiming();
   }
-}
+};
 
-function createTwentyElement(start, end, className) {
+const createTwentyElement = (start, end, className) => {
   const twenty = document.createElement('div');
   twenty.className += className || 'twenty';
   const twentyText = ['Try to solve the problem yourself', 'You should ask for help to your team or to your cohort', 'You should ask for help to a mentor', 'I hope you solved your problem by now'];
   const twentyI = document.getElementsByClassName('twenty').length;
   	twenty.innerText = twentyText[twentyI];
   	return twenty;
-}
+};
 
-function addTwenty() {
+const addTwenty = () => {
   if (hasStart(stopwatch) && !hasStop(stopwatch)) {
     const twenty = createTwentyElement(stopwatch.startTime, Date.now());
     document.getElementById('twentycontainer').appendChild(twenty);
   }
-}
+};
 
 get('start').addEventListener('click', startTiming);
 get('stop').addEventListener('click', stopTiming);
