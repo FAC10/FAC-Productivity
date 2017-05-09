@@ -1,0 +1,22 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+<script>
+  var socket = io();
+
+  socket.on('name', function (data) {
+    document.getElementById('lpop').innerText = data.n;
+  });
+  socket.on('allName', function (data) {
+    document.getElementById('lpop').innerText = data.n;
+  });
+
+  socket.on('allPop', function (data) {
+    data.on ?
+      document.getElementById('pop').className = 'on' :
+      document.getElementById('pop').className = '';
+  });
+
+  document.getElementById('pop').addEventListener('click', function (event) {
+    socket.emit('requestName');
+  })
+
+</script>

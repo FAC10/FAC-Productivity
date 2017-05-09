@@ -1,6 +1,7 @@
 const hasStart = obj => obj.hasOwnProperty('startTime');
 const hasStop = obj => obj.hasOwnProperty('stopTime');
 
+
 const stopwatch = {};
 const count = 0;
 
@@ -16,6 +17,7 @@ const startTiming = () => {
   }
   delete stopwatch.stopTime;
 };
+
 
 const stopTiming = () => {
   if (!hasStop(stopwatch) && hasStart(stopwatch)) {

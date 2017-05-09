@@ -1,7 +1,7 @@
 module.exports = {
   method: 'GET',
-  path: '/lollipop',
+  path: '/lpop',
   handler: (req, reply) => {
-    reply.view('lollipop');
+    reply.view('lpop');
   },
 };
