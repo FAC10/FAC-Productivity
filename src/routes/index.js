@@ -7,7 +7,10 @@ module.exports = [
   './public',
   './app-twenty',
   './app-pomodoro',
-  './app-lollipop',
+  './app-lpop-admin',
   './app-add',
   './logout',
+  './app-lpop-api',
+  './app-lpop',
+  './app-lpop-servefiles',
 ].map(require);
