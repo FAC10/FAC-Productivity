@@ -1,15 +1,52 @@
-const LedMatrix = require('node-rpi-rgb-led-matrix');
-
-const matrix = new LedMatrix(32, 2);
-console.log(matrix.getWidth(), matrix.getHeight());
-console.log('running');
-matrix.fill(255, 50, 100);
-matrix.setPixel(16, 16, 100, 100, 100);
-
-setInterval(() => {}, 1000);
-
-
-// const Matrix = require('hzeller-matrix');
-// const matrix = new Matrix({ width: 64, height: 32 });
+// const exec = require('child_process').exec;
 //
-// matrix.runText('HELLO EVERYONE');
+//
+// const pilib = exec('../rpi-rgb-led-matrix/examples-api-use/text-example -f ../rpi-rgb-led-matrix/fonts/8x13B.bdf -y14 -C255,0,0 --led-rows=32 --led-chain=2');
+//
+// pilib.stdin
+//
+// pilib.stdout.on('data', (data) => {
+//   console.log(`stdout: ${data}`);
+// });
+//
+// pilib.stderr.on('data', (data) => {
+//   console.log(`stderr: ${data}`);
+// });
+//
+// pilib.on('close', (code) => {
+//   console.log(`child process exited with code ${code}`);
+// });
+
+
+const exec = require('child_process').exec;
+
+
+const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
+const fonts = '../rpi-rgb-led-matrix/fonts/';
+const font = '8x13B.bdf';
+const yPos = '14';
+const rgb = [210, 145, 10];
+
+
+const child = exec(`${textExample} -f ${fonts}${font} -y${yPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);
+
+child.stdin.setEncoding('utf-8');
+child.stdout.pipe(process.stdout);
+
+child.stdin.write('Finn\n');
+
+setTimeout(() => {
+  child.stdin.write('Yvonne\n');
+}, 1000);
+
+setTimeout(() => {
+  child.stdin.write('Antonio\n');
+}, 2000);
+
+setTimeout(() => {
+  child.stdin.write('Lucy\n');
+}, 3000);
+
+setTimeout(() => {
+  child.stdin.end();
+}, 4000);
