@@ -1,9 +1,8 @@
 /*landing page styles*/
 
 .landing_logo {
-  width: 12em;
+  width: 15em;
   height: auto;
-  border-radius: 10%;
   margin: 0 auto;
   display: block;
 }
@@ -11,13 +10,15 @@
 .landing_heading {
   margin: 1em 0 0 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(230,121,121);
 }
 
 .landing_heading__sub {
-  font-size: 1.5rem;
+  font-size: 2.7rem;
+  line-height: 4rem;
   display: block;
+  color: rgb(174,55,56)
 }
 
 .login_with_github_wrap {
@@ -52,9 +53,7 @@
 
 .landing__info__wrap {
   max-width: 30em;
-  margin: 3em auto;
-  border-radius: 1em;
-  border: 0.3em solid rgb(230,121,121);
+  margin: 0 auto;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -64,7 +63,7 @@
   width: auto;
   height: auto;
   border-radius: .75em;
-  background-color: rgb(230,121,121);
+  background-color: rgb(174,55,56);
   max-width: 1.5em;
   min-width: 1.5em;
   min-height: 1.5em;
@@ -72,7 +71,7 @@
   line-height: 1.5em;
   color: white;
   text-align: center;
-  margin: .5em auto 1em auto;
+  margin: 0 auto;
   transition: .3s all ease;
   box-sizing: border-box;
   display: block;
@@ -82,8 +81,8 @@
   text-align: left;
   font-size: 1.3rem;
   color: white;
-  background-color: rgb(230,121,121);
-  border-radius: 0;
+  background-color: rgb(174,55,56);
+  border-radius: .3em;
   min-width: 100%;
   min-height: 8em;
   padding: 1em;
@@ -96,7 +95,7 @@
 }
 
 .gradient_bulb_glow {
-  padding-top: 5em;
+  padding-top: 2em;
   box-sizing: border-box;
   height: 100vh;
   background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
