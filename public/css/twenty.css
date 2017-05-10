@@ -1,6 +1,6 @@
-
 .stopwatch {
   margin: 2em auto;
+  margin-top: 15em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +16,19 @@
   flex-direction: row;
 }
 
+.stopwatch__button:hover :active {
+  fill: rgb(230,89,89);
+  cursor: pointer;
+}
+
 .stopwatch__display {
+  color: rgb(230,121,121);
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.twenty {
+  color: rgb(230,121,121);
+  font-size: 1em;
   margin-bottom: 1em;
 }
