@@ -98,7 +98,7 @@ const addTimeToDom = () => {
 const createTwentyElement = (start, end, className) => {
   const twenty = document.createElement('div');
   twenty.className += className || 'twenty';
-  const twentyText = ['Try to solve the problem yourself', 'You should ask for help to your team or to your cohort', 'You should ask for help to a mentor', 'I hope you solved your problem by now'];
+  const twentyText = ['Try to solve the problem yourself first!', 'You should ask for help to your team or to your cohort', 'You should ask for help to a mentor', 'I hope you solved your problem by now'];
   const twentyI = document.getElementsByClassName('twenty').length;
   	twenty.innerText = twentyText[twentyI];
   	return twenty;
@@ -112,7 +112,7 @@ const addTwenty = () => {
 };
 
 get('start').addEventListener('click', startTiming);
-get('stop').addEventListener('click', stopTiming);
-get('reset').addEventListener('click', resetTime);
+get('pause').addEventListener('click', stopTiming);
+get('restart').addEventListener('click', resetTime);
 
 setInterval(addTimeToDom, 500);
