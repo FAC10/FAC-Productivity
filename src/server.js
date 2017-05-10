@@ -25,6 +25,7 @@ server.connection({
 });
 
 server.register([vision, inert, cookieAuthModule, contextCredentials], (err) => {
+  /* istanbul ignore next */
   if (err) throw err;
 
   server.auth.strategy('base', 'cookie', 'required', {
