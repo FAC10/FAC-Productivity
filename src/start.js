@@ -6,8 +6,6 @@ const exec = require('child_process').exec;
 server.start((err) => {
   if (err) throw err;
 
-  const exec = require('child_process').exec;
-
   const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
   const fonts = '../rpi-rgb-led-matrix/fonts/';
   const font = {

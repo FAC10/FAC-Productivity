@@ -13,11 +13,13 @@ module.exports = (listener, childProcess) => {
         runClock();
       }, 5000);
     } else {
+      childProcess.stdin.write(`    ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        childProcess.stdin.write(`${new Date(Date.now()).toISOString().slice(-13, -5)}\n`);
-      }, 1000);
+        childProcess.stdin.write(`    ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      }, 30000);
     }
   };
+
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
