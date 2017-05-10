@@ -15,7 +15,7 @@ module.exports = (listener, childProcess) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      childProcess.stdin.write(`${name.n}\n`);
+      childProcess.stdin.write(`${data.n}\n`);
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
