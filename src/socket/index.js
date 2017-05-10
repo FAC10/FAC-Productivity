@@ -2,7 +2,7 @@ const { tickById, reset } = require('../database/post');
 const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
 
-module.exports = (listener) => {
+module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
 
   io.on('connection', (socket) => {
@@ -15,6 +15,7 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
+      childProcess.stdin.write(`${new Date(Date.now()).toISOString().substr(-13, 8)}\n`);
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
