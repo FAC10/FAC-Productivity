@@ -5,6 +5,10 @@ const getRandomName = require('./getRandomName');
 module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
 
+  setInterval(() => {
+    childProcess.stdin.write(`${new Date(Date.now()).toISOString()}\n`);
+  }, 500);
+
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
     const callAllPop = () => allPop((err, res) => err ? console.log(err) :
