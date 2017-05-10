@@ -5,9 +5,19 @@ const getRandomName = require('./getRandomName');
 module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
 
-  setInterval(() => {
-    childProcess.stdin.write(`${new Date(Date.now()).toISOString().slice(-13, -5)}\n`);
-  }, 1000);
+  let clock = null;
+  const runClock = (stop) => {
+    if (stop) {
+      clock ? clearInterval(clock) : '';
+      setTimeout(() => {
+        runClock();
+      }, 5000);
+    } else {
+      clock = setInterval(() => {
+        childProcess.stdin.write(`${new Date(Date.now()).toISOString().slice(-13, -5)}\n`);
+      }, 1000);
+    }
+  };
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
@@ -20,6 +30,7 @@ module.exports = (listener, childProcess) => {
     // React client stuff
     socket.on('name', (data) => {
       childProcess.stdin.write(`${data.n}\n`);
+      runClock(true);
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
