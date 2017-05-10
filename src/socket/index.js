@@ -6,8 +6,8 @@ module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
 
   setInterval(() => {
-    childProcess.stdin.write(`${new Date(Date.now()).toISOString()}\n`);
-  }, 200);
+    childProcess.stdin.write(`${new Date(Date.now()).toISOString().slice(-13, -5)}\n`);
+  }, 1000);
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
