@@ -13,9 +13,9 @@ module.exports = (listener, childProcess) => {
         runClock();
       }, 5000);
     } else {
-      childProcess.stdin.write(`    ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        childProcess.stdin.write(`    ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
