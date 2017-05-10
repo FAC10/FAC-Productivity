@@ -42,3 +42,7 @@ const pomodoro = (workLen, breakLen, onSwitchFunc) => {
     update,
   };
 };
+
+if (module) {
+  module.exports = pomodoro;
+}
