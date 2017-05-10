@@ -1,4 +1,20 @@
 /*pomodoro app*/
+.cup {
+  position: absolute;
+  z-index: 11;
+  top: 15em;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  /*background-color: black;*/
+  width: 15em;
+  height: 23em;
+}
+.pom {
+  /*transform: scale(1,1);
+  transition: 0.2s transform ease;*/
+}
+
 .pomodoro {
   background-color: rgb(255, 151, 124);
   width: 20em;
@@ -7,9 +23,23 @@
   border-top-left-radius: 47%;
   border-top-right-radius: 47%;
   overflow: hidden;
-  margin: 5em auto 0 auto;
+  margin: 0 auto 0 auto;
 }
-
+.pomodoro__stalk {
+  content: '';
+  display: block;
+  width: 17em;
+  height: 10em;
+  top: -.1em;
+  margin: 3em auto -2.3em auto;
+  transform: scale(1,1);
+  background-image: url('/images/pomodoro-stalk.png');
+  background-repeat:no-repeat;
+  background-size: 100%;
+  transform-style: flat;
+  z-index: 10;
+  position: relative;
+}
 .pomodoro__inner {
   background-color: #F67374;
   height: 17em;
@@ -17,15 +47,19 @@
   transform-origin: center bottom;
   transform: scale(1,0);
   transition: 0.05s all ease;
+  z-index: 1;
+  transform-style: flat;
+  position: relative;
 }
-
 .pomodoro__text {
-  margin-top: -10.6rem;
+  margin-top: -11.4rem;
   text-align: center;
   font-size: 4em;
   color: white;
   display: block;
-  z-index: 10;
+  z-index: 15;
   font-weight: 600;
   transform: scale(1,1);
+  transform-style: flat;
+  position: relative;
 }

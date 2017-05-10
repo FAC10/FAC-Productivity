@@ -1,4 +1,4 @@
-module.exports = (workLen, breakLen, onSwitchFunc) => {
+const pomodoro = (workLen, breakLen, onSwitchFunc) => {
   let startTime = null;
   let pausedAt = null;
   let isWork = true;
@@ -25,9 +25,9 @@ module.exports = (workLen, breakLen, onSwitchFunc) => {
       isWork = !isWork;
       setStart(currentTime);
       onSwitchFunc(isWork);
-      return { time: 0, amountComplete: 0 };
+      return { time: 0, amountComplete: 0, isWork };
     }
-    return { time, amountComplete };
+    return { time, amountComplete, isWork };
   };
 
   return {

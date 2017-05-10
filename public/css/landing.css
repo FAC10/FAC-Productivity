@@ -1,5 +1,11 @@
 /*landing page styles*/
 
+body, html {
+  padding: 0;
+  margin: 0;
+  font-family: helvetica;
+}
+
 .landing_logo {
   width: 15em;
   height: auto;

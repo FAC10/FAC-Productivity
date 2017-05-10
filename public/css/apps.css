@@ -41,7 +41,6 @@
   margin: .5em;
   background-color: #fff;
 
-  margin-bottom: 3em;
   padding-bottom: 2em;
   box-sizing: border-box;
   vertical-align: top;
@@ -107,7 +106,6 @@
 
 /*add app page*/
 .add_app {
-  min-height: 75vh;
   display: flex;
   flex-direction: column;
   align-items: center;

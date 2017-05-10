@@ -19,9 +19,9 @@ server.connection({
     key: fs.readFileSync('./keys/key.pem'),
     cert: fs.readFileSync('./keys/cert.pem'),
   },
-  state: {
-    isSameSite: 'Lax',
-  },
+  // state: {
+  //   isSameSite: 'Lax',
+  // },
 });
 
 server.register([vision, inert, cookieAuthModule, contextCredentials], (err) => {

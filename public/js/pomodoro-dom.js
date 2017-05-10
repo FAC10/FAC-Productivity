@@ -1,13 +1,16 @@
-const pomoDom = (() => {
-  const timer = pomodoro(60000, 5000, console.log);
+const pomoDom = ((workLen, breakLen) => {
+  const timer = pomodoro(workLen * 60 * 1000, breakLen * 60 * 1000, console.log);
   const pomodoroDomText = document.querySelector('.pomodoro__text');
   const pomodoroDomInner = document.querySelector('.pomodoro__inner');
   const pause = document.querySelector('.pomodoro__pause');
 
+  const flipTime = (minsSecs, len) => timer.toReadableTime(len - minsSecs);
+
   const update = () => {
-    const { time, amountComplete } = timer.update(Date.now());
+    const { time, amountComplete, isWork } = timer.update(Date.now());
+    const len = isWork ? workLen : breakLen;
     pomodoroDomInner.style.transform = `scale(1, ${amountComplete})`;
-    pomodoroDomText.textContent = timer.toReadableTime(time);
+    pomodoroDomText.textContent = flipTime(time, len * 60 * 1000);
   };
 
   let updateInterval = setInterval(update, 250);
@@ -27,4 +30,4 @@ const pomoDom = (() => {
     paused ? resumeTimer() : pauseTimer();
     paused = !paused;
   });
-})();
+})(20, 5);
