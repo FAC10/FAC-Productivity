@@ -1,10 +1,19 @@
 /* general styles */
 
 html, body {
-  margin: 0 auto;
+  min-height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   font-family: helvetica;
   background: #fffaf0;
   font-size: 14px;
+}
+.content {
+  min-height: 100vh;
+}
+.content-inside {
+  padding-bottom: 10em;
 }
 
 header {
@@ -22,6 +31,8 @@ h1 {
 footer {
   background: #F67374;
   padding: 1em;
+  margin-top: -6em;
+  height: 4em;
 }
 
 .header_right {
