@@ -7,7 +7,7 @@
   background-color: #d9b38c;
   color: rgba(0,0,0,0.7);
   text-align: right;
-  font-size: 40px;
+  font-size: 2.1em;
   padding-right: 70px;
   line-height: 42px;
   font-family: 'Permanent Marker', cursive;
@@ -70,4 +70,10 @@
     0 0 0 .0625rem #AD3002 inset,
     0 0 0 .0625rem rgba(0,0,0, 0.4);
   transform: translateY(8px);
+}
+
+.lpop_qn {
+  font-size: 1.3em;
+  font-style: italic;
+  color: rgba(0,0,0,.7); 
 }
