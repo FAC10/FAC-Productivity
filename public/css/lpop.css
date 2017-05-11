@@ -1,17 +1,18 @@
 /*lpop app*/
 #lpop {
-  width: 440px;
-  border-radius: 25px;
-  height: 50px;
+  width: 90%;
+  max-width: 14em;
+  border-radius: 3em;
   margin: 100px auto 50px auto;
   background-color: #d9b38c;
   color: rgba(0,0,0,0.7);
   text-align: right;
   font-size: 2.1em;
-  padding-right: 70px;
-  line-height: 42px;
+  padding-right: 2.5em;
+  box-sizing: border-box;
+  line-height: 1.8em;
   font-family: 'Permanent Marker', cursive;
-  box-shadow: 0 0 0 0.0625rem #d9b38c inset, 0 0.1875rem 0 0 #ab8967;
+  box-shadow: 0 0 0 0.0625em #d9b38c inset, 0 0.1875em 0 0 #ab8967;
 }
 
 #container {
@@ -26,17 +27,17 @@
   border: none;
   outline: none;
   box-shadow:
-    0 0 0 .0625rem #C63702 inset,
-    0 .375rem 0 0 #AD3002, 0 .375rem 0 .0625rem rgba(0,0,0, 0.4);
+    0 0 0 .0625em #C63702 inset,
+    0 .375em 0 0 #AD3002, 0 .375em 0 .0625em rgba(0,0,0, 0.4);
   color: rgba(255,250,250, 0.9);
   display: inline-block;
   margin: 0 auto;
-  margin-bottom: 10em;
+  margin-bottom: 2em; 
   font-weight: bold;
   position: relative;
   top: 0;
   text-align: center;
-  text-shadow: 0 .0625rem .0625rem rgba(0,0,0, 0.5);
+  text-shadow: 0 .0625em .0625em rgba(0,0,0, 0.5);
   transition:
     0.1s all ease-out,
     0.3s width ease-out,
@@ -51,29 +52,38 @@
   opacity: 0;
 }
 .on {
-  height: 5rem !important;
-  line-height: 5rem !important;
-  font-size: 1.3rem !important;
-  width: 5rem !important;
+  height: 5em !important;
+  line-height: 5em !important;
+  font-size: 1.3em !important;
+  width: 5em !important;
   opacity: 1 !important;
 }
 #pop:hover, #pop:focus {
   background-color: #D13902;
   box-shadow:
-    0 0 0 .0625rem #C63702 inset,
-    0 .5rem 0 0 #AD3002;
-  top: -0.125rem;
+    0 0 0 .0625em #C63702 inset,
+    0 .5em 0 0 #AD3002;
+  top: -0.125em;
 }
 
 #pop:active {
   box-shadow:
-    0 0 0 .0625rem #AD3002 inset,
-    0 0 0 .0625rem rgba(0,0,0, 0.4);
-  transform: translateY(8px);
+    0 0 0 .0625em #AD3002 inset,
+    0 0 0 .0625em rgba(0,0,0, 0.4);
+  transform: translateY(.5em);
+}
+
+.lpop_explained {
+  font-size: 1.3em;
+  background-color: #fff;
+  max-width: 31em;
+  margin: 0em auto;
+  padding: .5em 2em;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.7);
+  box-shadow: 0 .2em .2em rgba(0,0,0,0.11), 0 .2em .2em rgba(0,0,0,0.13);
 }
 
 .lpop_qn {
-  font-size: 1.3em;
   font-style: italic;
-  color: rgba(0,0,0,.7); 
 }

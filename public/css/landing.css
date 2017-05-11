@@ -1,5 +1,4 @@
 /*landing page styles*/
-
 body, html {
   padding: 0;
   margin: 0;
@@ -100,14 +99,15 @@ body, html {
 }
 
 .gradient_bulb_glow {
-  padding-top: 3em;
+  padding-top: 4em;
   height: 100vh;
-  background: -webkit-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* Standard syntax (must be last) */
+  background: #ffcda3;
 }
 
+
 .gradient--active {
-  background: white;
+  background: -webkit-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* Standard syntax (must be last) */
 }
