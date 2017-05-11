@@ -69,7 +69,7 @@ module.exports = (listener, childProcess) => {
     console.log('KILLED THE PROCESS', type);
   };
 
-  startText();
+  startText('small');
 
   let clock = null;
   const runClock = (stop) => {
@@ -123,6 +123,7 @@ module.exports = (listener, childProcess) => {
       if (!data.data) {
         return runClock(true);
       }
+      console.log(data.data);
       killProcess();
       setTimeout(() => {
         startText('small');
