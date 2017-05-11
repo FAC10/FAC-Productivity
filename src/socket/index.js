@@ -63,7 +63,9 @@ module.exports = (listener) => {
   const runClock = (stop) => {
     if (stop) {
       clock ? clearInterval(clock) : '';
-      killProcess();
+      setTimeout(() => {
+        killProcess();
+      }, 1000);
       setTimeout(() => {
         runClock();
       }, 5000);
