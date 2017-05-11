@@ -10,14 +10,18 @@ module.exports = (listener) => {
 
   const runText = (current, text) => {
     if (current.type === 'text') {
+      console.log('IS TEXT');
       return current.child.stdin.write(`${text}\n`);
     } else if (current.type) {
       current.child.end();
+      console.log('TYPE EXISTS');
     }
-    textDisplay((child) => {
-      currentProcess = { child, type: 'text' };
-      child.stdin.write(`${text}\n`);
-    });
+    const child = exec(options);
+    child.stdin.setEncoding('utf-8');
+    child.stdout.pipe(process.stdout);
+
+    currentProcess = { child, type: 'text' };
+    child.stdin.write(`${text}\n`);
   };
 
   let clock = null;
