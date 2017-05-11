@@ -64,6 +64,7 @@ module.exports = (listener) => {
 
   const killProcess = () => {
     child.kill();
+    type = 'dead';
     console.log('KILLED THE PROCESS', type);
   };
 
