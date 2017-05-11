@@ -19,18 +19,19 @@ module.exports = (listener) => {
   const runText = (text) => {
     if (type === 'text') {
       console.log('IS TEXT');
-      return child.stdin.write(`${text}\n`);
+      child.stdin.write(`${text}\n`);
     } else if (type) {
       child.kill();
       console.log('TYPE EXISTS');
-    }
-    console.log('happening');
-    child = exec(options);
-    child.stdin.setEncoding('utf-8');
-    child.stdout.pipe(process.stdout);
+    } else {
+      console.log('happening');
+      child = exec(options);
+      child.stdin.setEncoding('utf-8');
+      child.stdout.pipe(process.stdout);
 
-    type = 'text';
-    child.stdin.write(`${text}\n`);
+      type = 'text';
+      child.stdin.write(`${text}\n`);
+    }
   };
 
   let clock = null;
