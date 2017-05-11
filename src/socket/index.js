@@ -41,9 +41,10 @@ module.exports = (listener, childProcess) => {
       tom: 'tom-thumb.bdf',
     };
     const xPos = '5';
-    const yPos = '14';
     const rgb = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
     size = fontSize === 'small' ? 'small' : null;
+
+    const yPos = size === 'small' ? 2 : 8;
     const displayFont = size === 'small' ? font['6x9'] : font['7x13B'];
     child = exec(`${textExample} -f ${fonts}${displayFont} -y${yPos} -x${xPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);
     child.stdin.setEncoding('utf-8');
