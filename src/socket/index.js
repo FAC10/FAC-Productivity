@@ -9,7 +9,8 @@ module.exports = (listener, childProcess) => {
 
   let child = null;
   let type = null;
-  const startText = (size) => {
+  let size = null;
+  const startText = (fontSize) => {
     const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
     const fonts = '../rpi-rgb-led-matrix/fonts/';
     const font = {
@@ -42,8 +43,8 @@ module.exports = (listener, childProcess) => {
     const xPos = '5';
     const yPos = '14';
     const rgb = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
-
-    const displayFont = size === 'small' ? font.tom : font['7x13B'];
+    size = fontSize === 'small' ? 'small' : null;
+    const displayFont = size === 'small' ? font['6x9'] : font['7x13B'];
     child = exec(`${textExample} -f ${fonts}${displayFont} -y${yPos} -x${xPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);
     child.stdin.setEncoding('utf-8');
     child.stdout.pipe(process.stdout);
