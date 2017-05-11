@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const FormWrapper = styled.div`
   width: 100%;
   padding: 1.5rem 0 .5rem 0;
-  background-color: #31516a;
+  background-color: #478e75;
 `
 const AddForm = styled.form`
   width: 90%;

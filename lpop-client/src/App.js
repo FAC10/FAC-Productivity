@@ -29,7 +29,7 @@ const LpopAdmin = styled.section`
     0 .3rem .5rem .0625rem rgba(0,0,0, 0.5);
 `
 const ControlContainer = styled.section`
-  background-color: #31516a;
+  background-color: #478e75;
   text-align: center;
   width: 100%;
 `

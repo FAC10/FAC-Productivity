@@ -8,7 +8,7 @@ const NameList = styled.ul`
   width: 100%;
   margin: 0 auto;
   padding: 0 0 1.25rem 0;
-  background-color: #31516a;
+  background-color: #478e75;
 `
 
 export const LpopList = (props) => {
