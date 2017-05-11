@@ -124,9 +124,11 @@ module.exports = (listener, childProcess) => {
         return runClock(true);
       }
       killProcess();
-      startText('small');
-      stopClock();
-      displayText(`${data.data}`);
+      setTimeout(() => {
+        startText('small');
+        stopClock();
+        displayText(`${data.data}`);
+      }, 500);
     });
 
     socket.on('update', () => io.emit('update'));
