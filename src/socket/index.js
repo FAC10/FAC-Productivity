@@ -54,7 +54,8 @@ module.exports = (listener) => {
   const displayText = (text) => {
     if (type === 'text') {
       child.stdin.write(`${text}\n`);
-    } else {
+    } else if (type !== 'starting') {
+      type = 'starting';
       startText();
     }
   };
