@@ -73,7 +73,6 @@ module.exports = (listener) => {
   let clock = null;
   const runClock = (stop) => {
     if (stop) {
-      type = null;
       clock ? clearInterval(clock) : '';
       setTimeout(() => {
         killProcess();
@@ -102,7 +101,10 @@ module.exports = (listener) => {
     // React client stuff
     socket.on('name', (data) => {
       displayText(data.n);
-      if (type === 'text') runClock(true);
+      if (type === 'text') {
+        type = null;
+        runClock(true);
+      }
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
