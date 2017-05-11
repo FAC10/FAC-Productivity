@@ -9,7 +9,6 @@ module.exports = (listener) => {
 
   let child = null;
   let type = null;
-  const isShutDown = true;
   const startText = () => {
     const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
     const fonts = '../rpi-rgb-led-matrix/fonts/';
@@ -81,9 +80,9 @@ module.exports = (listener) => {
       }, 1500);
     } else {
       const hour = 1000 * 60 * 60;
-      type === 'text' ? child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`) : '';
+      displayText('  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}');
       clock = setInterval(() => {
-        type === 'text' ? child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`) : '';
+        displayText('  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}');
       }, 30000);
     }
   };
@@ -99,8 +98,8 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      type === 'text' ? child.stdin.write(`${data.n}\n`) : '';
-      runClock(true);
+      displayText(data.n);
+      if (type === 'text') runClock(true);
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
