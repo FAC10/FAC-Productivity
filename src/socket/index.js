@@ -9,6 +9,7 @@ module.exports = (listener) => {
   const io = require('socket.io').listen(listener);
 
   let currentProcess = { child: null, type: null }; // eslint-disable-line
+  console.log(currentProcess);
 
   const runText = (current, text) => {
     if (current.type === 'text') {
@@ -34,9 +35,9 @@ module.exports = (listener) => {
         runClock();
       }, 5000);
     } else {
-      runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      runText(currentProcess, `  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        runText(currentProcess, `  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
@@ -52,7 +53,7 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      runText(`${data.n}\n`);
+      runText(currentProcess, `${data.n}\n`);
       runClock(true);
       io.emit('name', data);
       if (data.id) {
@@ -63,7 +64,7 @@ module.exports = (listener) => {
     });
 
     socket.on('displayWord', ({ string }) => {
-      runText(`${string}\n`);
+      runText(currentProcess, `${string}\n`);
     });
 
     socket.on('update', () => io.emit('update'));
