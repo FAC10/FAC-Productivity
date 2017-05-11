@@ -101,11 +101,17 @@ body, html {
 }
 
 .gradient_bulb_glow {
-  padding-top: 2em;
-  box-sizing: border-box;
+  padding-top: .8em;
   height: 100vh;
-  background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle at center 10vh, white, white, #ffcd71); /* Standard syntax (must be last) */
+  background: -webkit-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* Standard syntax (must be last) */
+}
+
+.gradient--active {
+  background: -webkit-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* Standard syntax (must be last) */
 }
