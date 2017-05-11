@@ -1,6 +1,6 @@
 
 const test = require('tape');
-const { partial, parallel } = require('../src/lib/utilities');
+const { partial, parallel, parallelOld } = require('../src/lib/utilities');
 
 test('Do partials work', (t) => {
   const add = (a, b) => a + b;
@@ -22,6 +22,18 @@ test('Do parallel work', (t) => {
     t.deepEqual(result, [[1], [1], [1]], 'Should return an array of arrays');
   });
   parallel([fakeError], (error) => {
+    t.deepEqual(error, 'error', 'error');
+  });
+});
+
+test('Do parallelOld work', (t) => {
+  t.plan(2);
+  const fake = cb => cb(null, 1);
+  const fakeError = cb => cb('error');
+  parallelOld([fake, fake, fake], (error, result) => {
+    t.deepEqual(result, [1, 1, 1], 'Should return an array of arrays');
+  });
+  parallelOld([fakeError], (error) => {
     t.deepEqual(error, 'error', 'error');
   });
 });
