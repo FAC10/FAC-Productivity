@@ -8,7 +8,11 @@ const exec = require('child_process').exec;
 module.exports = (listener) => {
   const io = require('socket.io').listen(listener);
 
-  let currentProcess = { child: null, type: null }; // eslint-disable-line
+  const child = exec(options);
+  child.stdin.setEncoding('utf-8');
+  child.stdout.pipe(process.stdout);
+
+  let currentProcess = { child, type: null }; // eslint-disable-line
   console.log(currentProcess);
 
   const runText = (current, text) => {
