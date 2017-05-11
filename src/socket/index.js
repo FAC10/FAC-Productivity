@@ -12,13 +12,15 @@ module.exports = (listener) => {
   console.log(currentProcess);
 
   const runText = (current, text) => {
+    console.log(current);
     if (current.type === 'text') {
       console.log('IS TEXT');
       return current.child.stdin.write(`${text}\n`);
     } else if (current.type) {
-      current.child.end();
+      current.child.kill();
       console.log('TYPE EXISTS');
     }
+    console.log('happening');
     const child = exec(options);
     child.stdin.setEncoding('utf-8');
     child.stdout.pipe(process.stdout);
