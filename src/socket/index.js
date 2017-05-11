@@ -53,9 +53,7 @@ module.exports = (listener) => {
   const killProcess = () => {
     child.kill();
     type = null;
-    setTimeout(() => {
-      startText();
-    }, 4000);
+    startText();
   };
 
   startText();
@@ -65,9 +63,7 @@ module.exports = (listener) => {
   const runClock = (stop) => {
     if (stop) {
       clock ? clearInterval(clock) : '';
-      setTimeout(() => {
-        killProcess();
-      }, 4000);
+      killProcess();
       setTimeout(() => {
         runClock();
       }, 5000);
