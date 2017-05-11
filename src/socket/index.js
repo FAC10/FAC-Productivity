@@ -53,9 +53,10 @@ module.exports = (listener) => {
         runClock();
       }, 5000);
     } else {
-      child.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      const hour = 1000 * 60 * 60;
+      child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        child.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
