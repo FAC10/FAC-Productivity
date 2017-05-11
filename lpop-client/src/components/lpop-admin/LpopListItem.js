@@ -7,7 +7,7 @@ const NameItem = styled.li`
   list-style: none;
   margin: 0 auto;
   padding: .5rem 0;
-  background-color: ${props => props.selected ? '#375873' : '#31516a'};
+  background-color: ${props => props.selected ? '#375873' : '#478e75'};
   border-bottom: .125rem solid #486e8c;
   &:last-child {
     border-bottom: none;
