@@ -124,6 +124,9 @@ module.exports = (listener, childProcess) => {
       if (!data.data) {
         return runClock(true);
       }
+      if (size === 'small') {
+        return displayText(data.data);
+      }
       console.log(data.data);
       killProcess();
       setTimeout(() => {
