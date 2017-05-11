@@ -52,10 +52,11 @@ module.exports = (listener) => {
   const displayText = (text) => {
     if (type === 'text') {
       child.stdin.write(`${text}\n`);
+      console.log('DISPLAYED TEXT');
     } else if (type !== 'starting') {
       console.log(type);
       type = 'starting';
-      console.log('happenning');
+      console.log('RESETTING TEXT DISPLAY');
       startText();
       displayText(text);
     }
@@ -63,6 +64,7 @@ module.exports = (listener) => {
 
   const killProcess = () => {
     child.kill();
+    console.log('KILLED THE PROCESS');
   };
 
   startText();
