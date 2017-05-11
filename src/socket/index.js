@@ -25,11 +25,11 @@ module.exports = (listener) => {
     }
     console.log('happening');
     currentProcess.child = exec(options);
-    currentProcesschild.stdin.setEncoding('utf-8');
-    currentProcesschild.stdout.pipe(process.stdout);
+    currentProcess.child.stdin.setEncoding('utf-8');
+    currentProcess.child.stdout.pipe(process.stdout);
 
     currentProcess.type = 'text';
-    currentProcesschild.stdin.write(`${text}\n`);
+    currentProcess.child.stdin.write(`${text}\n`);
   };
 
   let clock = null;
