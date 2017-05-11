@@ -9,6 +9,7 @@ module.exports = (listener) => {
 
   let child = null;
   let type = null;
+  const isShutDown = true;
   const startText = () => {
     const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
     const fonts = '../rpi-rgb-led-matrix/fonts/';
@@ -51,9 +52,17 @@ module.exports = (listener) => {
     }, 200);
   };
 
+  const displayText = (text) => {
+    if (type === 'text') {
+      child.stdin.write(`${text}\n`);
+    } else {
+      startText();
+    }
+  };
+
   const killProcess = () => {
-    child.kill();
     type = null;
+    child.kill();
     startText();
   };
 
