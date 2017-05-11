@@ -47,7 +47,9 @@ module.exports = (listener) => {
 
     child.stdin.setEncoding('utf-8');
     child.stdout.pipe(process.stdout);
-    type = 'text';
+    setTimeout(() => {
+      type = 'text';
+    }, 1000);
   };
 
   const killProcess = () => {
