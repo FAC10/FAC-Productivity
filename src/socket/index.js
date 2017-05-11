@@ -56,6 +56,7 @@ module.exports = (listener) => {
       child.stdin.write(`${text}\n`);
     } else if (type !== 'starting') {
       type = 'starting';
+      console.log('happenning');
       startText();
     }
   };
