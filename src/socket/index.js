@@ -48,6 +48,13 @@ module.exports = (listener) => {
     child.stdout.pipe(process.stdout);
   };
 
+  const killProcess = () => {
+    child.kill();
+    setTimeout(() => {
+      startText();
+    }, 1000);
+  };
+
   startText();
 
 
@@ -55,6 +62,9 @@ module.exports = (listener) => {
   const runClock = (stop) => {
     if (stop) {
       clock ? clearInterval(clock) : '';
+      setTimeout(() => {
+        killProcess();
+      }, 1000);
       setTimeout(() => {
         runClock();
       }, 5000);
