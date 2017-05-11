@@ -120,7 +120,7 @@ module.exports = (listener, childProcess) => {
 
     socket.on('wifipwd', (data) => {
       if (!data.data) {
-        return runClock();
+        return runClock(true);
       }
       displayText(`${data.data}`);
       stopClock();
