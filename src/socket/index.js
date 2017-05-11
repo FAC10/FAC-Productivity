@@ -12,6 +12,7 @@ module.exports = (listener) => {
   let type = 'text';
   child.stdin.setEncoding('utf-8');
   child.stdout.pipe(process.stdout);
+  child.stdin.write('hello');
 
   console.log(type);
 
