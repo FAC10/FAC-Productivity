@@ -1,9 +1,9 @@
 # FAC Classroom Apps
 
-[![codecov](https://codecov.io/gh/yvonne-liu/fac-hardware/branch/master/graph/badge.svg)](https://codecov.io/gh/yvonne-liu/fac-hardware)
-[![Build Status](https://travis-ci.org/yvonne-liu/FAC-Hardware.svg?branch=master)](https://travis-ci.org/yvonne-liu/FAC-Hardware)
+[![codecov](https://codecov.io/gh/yvonne-liu/FAC-Productivity/branch/master/graph/badge.svg)](https://codecov.io/gh/yvonne-liu/FAC-Productivity)
+[![Build Status](https://travis-ci.org/yvonne-liu/FAC-Productivity.svg?branch=master)](https://travis-ci.org/yvonne-liu/FAC-Productivity)
 
-### Welcome
+### Welcome!
 
 FAC Productivity Tools is home to a range of tools made by students for students. Inspired by the Founders and Coders methods, they are designed to help facilitate learning and structure project work. 
 
