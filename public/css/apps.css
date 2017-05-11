@@ -84,7 +84,8 @@
 }
 
 .app__image--led {
-  background-color: #8fe7ff;
+  background-color: #ff8f8f;
+  background-image: url('/images/leds.png')
 }
 
 .app__title {
