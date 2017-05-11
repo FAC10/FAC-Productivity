@@ -4,7 +4,7 @@ const getRandomName = require('./getRandomName');
 const exec = require('child_process').exec;
 
 
-module.exports = (listener) => {
+module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
 
   let child = null;
@@ -70,7 +70,6 @@ module.exports = (listener) => {
 
   startText();
 
-
   let clock = null;
   const runClock = (stop) => {
     if (stop) {
@@ -114,6 +113,11 @@ module.exports = (listener) => {
         });
       }
     });
+
+    socket.on('wifipwd', (data) => {
+      console.log(`${data.data}`);
+      displayText(`${data.data}`);
+    })
 
     socket.on('update', () => io.emit('update'));
 

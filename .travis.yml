@@ -1,7 +1,17 @@
 language: node_js
 node_js:
-  - '7'
+  - '6.9.5'
 script:
   -  "npm run coverage"
+env:
+  - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+  postgres: "9.4"
 after_success:
   - ./node_modules/.bin/codecov -e TRAVIS_NODE_VERSION -f coverage/coverage.json
