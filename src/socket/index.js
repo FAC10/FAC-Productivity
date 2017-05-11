@@ -48,7 +48,7 @@ module.exports = (listener) => {
       child.stdin.setEncoding('utf-8');
       child.stdout.pipe(process.stdout);
       type = 'text';
-    }, 1000);
+    }, 200);
   };
 
   const killProcess = () => {
@@ -69,7 +69,7 @@ module.exports = (listener) => {
       }, 1000);
       setTimeout(() => {
         runClock();
-      }, 5000);
+      }, 1500);
     } else {
       const hour = 1000 * 60 * 60;
       type === 'text' ? child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`) : '';
