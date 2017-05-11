@@ -53,6 +53,7 @@ module.exports = (listener) => {
     if (type === 'text') {
       child.stdin.write(`${text}\n`);
     } else if (type !== 'starting') {
+      console.log(type);
       type = 'starting';
       console.log('happenning');
       startText();
@@ -61,7 +62,6 @@ module.exports = (listener) => {
   };
 
   const killProcess = () => {
-    type = 'stopping';
     child.kill();
   };
 
@@ -101,7 +101,6 @@ module.exports = (listener) => {
       console.log(type);
       displayText(data.n);
       if (type === 'text') {
-        type = null;
         runClock(true);
       }
       io.emit('name', data);
