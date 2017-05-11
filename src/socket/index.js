@@ -80,9 +80,9 @@ module.exports = (listener) => {
       }, 1500);
     } else {
       const hour = 1000 * 60 * 60;
-      displayText('  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}');
+      displayText(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}`);
       clock = setInterval(() => {
-        displayText('  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}');
+        displayText(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}`);
       }, 30000);
     }
   };
