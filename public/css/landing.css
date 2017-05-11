@@ -7,14 +7,14 @@ body, html {
 }
 
 .landing_logo {
-  width: 15em;
+  width: 13em;
   height: auto;
   margin: 0 auto;
   display: block;
 }
 
 .landing_heading {
-  margin: 1em 0 0 0;
+  margin: 0em 0 0 0;
   text-align: center;
   font-size: 1.5rem;
   color: rgb(230,121,121);
@@ -24,7 +24,7 @@ body, html {
   font-size: 2.7rem;
   line-height: 4rem;
   display: block;
-  color: rgb(174,55,56)
+  color: #216868;
 }
 
 .login_with_github_wrap {
@@ -85,12 +85,11 @@ body, html {
 
 .landing__info--active {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1em;
   color: white;
   background-color: rgb(174,55,56);
   border-radius: .3em;
   min-width: 100%;
-  min-height: 8em;
   padding: 1em;
   transition: .2s all cubic-bezier(0.22, 0.61, 0.36, 1);
   margin: 0 auto;
@@ -101,17 +100,14 @@ body, html {
 }
 
 .gradient_bulb_glow {
-  padding-top: .8em;
+  padding-top: 3em;
   height: 100vh;
-  background: -webkit-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle at center 10vh, white, #ffe6b8, #ffcd71); /* Standard syntax (must be last) */
+  background: -webkit-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, #fffaf0, #fff2d7); /* Standard syntax (must be last) */
 }
 
 .gradient--active {
-  background: -webkit-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle at center 10vh, white, #fff0d4, #ffcd71); /* Standard syntax (must be last) */
+  background: white;
 }
