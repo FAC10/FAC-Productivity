@@ -64,7 +64,6 @@ module.exports = (listener) => {
   const killProcess = () => {
     type = null;
     child.kill();
-    startText();
   };
 
   startText();
@@ -72,7 +71,7 @@ module.exports = (listener) => {
 
   let clock = null;
   const runClock = (stop) => {
-    if (stop && type === 'text') {
+    if (stop) {
       clock ? clearInterval(clock) : '';
       setTimeout(() => {
         killProcess();
