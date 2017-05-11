@@ -1,21 +1,36 @@
 const { tickById, reset } = require('../database/post');
 const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
+const textDisplay = require('./../led-display/text-display');
 
-module.exports = (listener, childProcess) => {
+module.exports = (listener) => {
   const io = require('socket.io').listen(listener);
 
+  let currentProcess = { child: null, type: null }; // eslint-disable-line
+
+  const runText = (current, text) => {
+    if (current.type === 'text') {
+      return current.child.stdin.write(`${text}\n`);
+    } else if (current.type) {
+      current.child.end();
+    }
+    textDisplay((child) => {
+      currentProcess = { child, type: 'text' };
+      child.stdin.write(`${text}\n`);
+    });
+  };
+
   let clock = null;
-  const runClock = (stop) => {
+  const runClock = (child, stop) => {
     if (stop) {
       clock ? clearInterval(clock) : '';
       setTimeout(() => {
         runClock();
       }, 5000);
     } else {
-      childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
@@ -31,7 +46,7 @@ module.exports = (listener, childProcess) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      childProcess.stdin.write(`${data.n}\n`);
+      runText(`${data.n}\n`);
       runClock(true);
       io.emit('name', data);
       if (data.id) {
@@ -39,6 +54,10 @@ module.exports = (listener, childProcess) => {
           if (err) socket.emit('error', { error: 'Error ticking name in database' });
         });
       }
+    });
+
+    socket.on('displayWord', ({ string }) => {
+      runText(`${string}\n`);
     });
 
     socket.on('update', () => io.emit('update'));
