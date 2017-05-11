@@ -90,6 +90,10 @@ module.exports = (listener, childProcess) => {
     }
   };
 
+  const stopClock = () => {
+    clock ? clearInterval(clock) : '';
+  };
+
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
@@ -115,9 +119,12 @@ module.exports = (listener, childProcess) => {
     });
 
     socket.on('wifipwd', (data) => {
-      console.log(`${data.data}`);
+      if (!data.data) {
+        return runClock();
+      }
       displayText(`${data.data}`);
-    })
+      stopClock();
+    });
 
     socket.on('update', () => io.emit('update'));
 
