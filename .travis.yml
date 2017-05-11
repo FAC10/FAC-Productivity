@@ -1,7 +1,30 @@
 language: node_js
+
 node_js:
-  - '6.9.5'
+- '7'
+
+env:
+  - CXX=g++-4.8
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-4.8
+    - g++-4.8
+  postgres: "9.4"
+
 script:
-  -  "npm run coverage"
+  npm run coverage
+
+before_install:
+  - pip install --user codecov
+
 after_success:
-  - ./node_modules/.bin/codecov -e TRAVIS_NODE_VERSION -f coverage/coverage.json
+  - codecov --file coverage/lcov.info --disable search
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
