@@ -3,7 +3,7 @@
 }
 
 .add_app {
-  font-size: 1.2em; 
+  font-size: 1.2em;
   background-color: #fff;
   width: 42em;
   max-width: 90%;
@@ -12,4 +12,9 @@
   box-sizing: border-box;
   color: rgba(0,0,0,0.7);
   box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.inline_link {
+  text-decoration: none;
+  color: #ae3738;
 }
