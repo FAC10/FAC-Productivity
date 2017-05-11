@@ -43,11 +43,10 @@ module.exports = (listener) => {
     const yPos = '14';
     const rgb = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
 
-    child = exec(`${textExample} -f ${fonts}${font['7x13B']} -y${yPos} -x${xPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);
-
-    child.stdin.setEncoding('utf-8');
-    child.stdout.pipe(process.stdout);
     setTimeout(() => {
+      child = exec(`${textExample} -f ${fonts}${font['7x13B']} -y${yPos} -x${xPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);
+      child.stdin.setEncoding('utf-8');
+      child.stdout.pipe(process.stdout);
       type = 'text';
     }, 1000);
   };
