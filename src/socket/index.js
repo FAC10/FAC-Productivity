@@ -52,11 +52,11 @@ module.exports = (listener) => {
   const displayText = (text) => {
     if (type === 'text') {
       child.stdin.write(`${text}\n`);
-      console.log('DISPLAYED TEXT');
+      console.log('DISPLAYED TEXT', type);
     } else if (type !== 'starting') {
       console.log(type);
       type = 'starting';
-      console.log('RESETTING TEXT DISPLAY');
+      console.log('RESETTING TEXT DISPLAY', type);
       startText();
       displayText(text);
     }
@@ -64,7 +64,7 @@ module.exports = (listener) => {
 
   const killProcess = () => {
     child.kill();
-    console.log('KILLED THE PROCESS');
+    console.log('KILLED THE PROCESS', type);
   };
 
   startText();
@@ -82,7 +82,7 @@ module.exports = (listener) => {
       }, 1500);
     } else {
       const hour = 1000 * 60 * 60;
-      console.log('TRYING TO RUN THE CLOCK DISPLAY');
+      console.log('TRYING TO RUN THE CLOCK DISPLAY', type);
       displayText(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}`);
       clock = setInterval(() => {
         displayText(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}`);
