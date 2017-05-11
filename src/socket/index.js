@@ -2,6 +2,7 @@ const { tickById, reset } = require('../database/post');
 const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
 // const textDisplay = require('./../led-display/text-display');
+const options = require('./../led-display/text-display-options');
 const exec = require('child_process').exec;
 
 module.exports = (listener) => {
