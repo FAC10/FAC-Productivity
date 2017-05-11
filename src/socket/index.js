@@ -8,28 +8,28 @@ const exec = require('child_process').exec;
 module.exports = (listener) => {
   const io = require('socket.io').listen(listener);
 
-  const child = exec(options);
+  let child = exec(options);
+  let type = 'text';
   child.stdin.setEncoding('utf-8');
   child.stdout.pipe(process.stdout);
 
-  let currentProcess = { child, type: 'text' }; // eslint-disable-line
-  console.log(currentProcess);
+  console.log(type);
 
   const runText = (text) => {
-    if (currentProcess.type === 'text') {
+    if (type === 'text') {
       console.log('IS TEXT');
-      return currentProcess.child.stdin.write(`${text}\n`);
-    } else if (currentProcess.type) {
-      currentProcess.child.kill();
+      return child.stdin.write(`${text}\n`);
+    } else if (type) {
+      child.kill();
       console.log('TYPE EXISTS');
     }
     console.log('happening');
-    currentProcess.child = exec(options);
-    currentProcess.child.stdin.setEncoding('utf-8');
-    currentProcess.child.stdout.pipe(process.stdout);
+    child = exec(options);
+    child.stdin.setEncoding('utf-8');
+    child.stdout.pipe(process.stdout);
 
-    currentProcess.type = 'text';
-    currentProcess.child.stdin.write(`${text}\n`);
+    type = 'text';
+    child.stdin.write(`${text}\n`);
   };
 
   let clock = null;
