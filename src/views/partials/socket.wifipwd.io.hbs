@@ -3,8 +3,9 @@
   var socket = io();
   document.getElementById('button').addEventListener("click", function (event) {
     event.preventDefault();
-    console.log('++++',m.value);
     socket.emit('wifipwd', {data: m.value});
+    m.value = '';
+    m.focus();
   });
 
 </script>

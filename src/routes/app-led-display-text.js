@@ -1,7 +1,7 @@
 module.exports = {
   method: 'GET',
-  path: '/wifipwd',
+  path: '/display-text',
   handler: (req, reply) => {
-    reply.view('wifipwd');
+    reply.view('display-text');
   },
 };

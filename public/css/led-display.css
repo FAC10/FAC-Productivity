@@ -1,0 +1,36 @@
+#wifipwd {
+  text-align: center;
+}
+
+#form {
+  line-height: 1em;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.led__input {
+  padding: .5em;
+  font-size: 1em;
+  margin-right: 0;
+}
+
+.led__submit {
+  background-color: #F67374;
+  font-size: 1em;
+  padding: .5em;
+  border: none;
+  margin-left: 0;
+  color: white;
+}
+
+.info-box {
+  width: 35em;
+  max-width: 90%;
+  margin: 4em auto;
+  background-color: white;
+  color: rgba(0,0,0,0.7);
+  padding: 1em 1.6em;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+  font-family: 'Hind', sans-serif;
+  font-size: 1.2em;
+}

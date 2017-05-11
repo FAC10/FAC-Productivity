@@ -83,6 +83,10 @@
   background-image: url('/images/plus.png');
 }
 
+.app__image--led {
+  background-color: #8fe7ff;
+}
+
 .app__title {
   font-size: 1.3em;
   margin: 0;

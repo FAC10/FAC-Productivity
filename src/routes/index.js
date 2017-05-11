@@ -13,5 +13,5 @@ module.exports = [
   './app-lpop-api',
   './app-lpop',
   './app-lpop-servefiles',
-  './wifipwd',
+  './app-led-display-text',
 ].map(require);
