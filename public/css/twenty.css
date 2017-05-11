@@ -1,6 +1,6 @@
-
 .stopwatch {
-  margin: 2em auto;
+  margin: 0em auto;
+  margin-top: 4em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,6 +16,35 @@
   flex-direction: row;
 }
 
+.stopwatch__button:hover {
+  fill: rgb(230,89,89);
+  cursor: pointer;
+}
+
+.stopwatch__button:active {
+  fill: rgb(230,89,89);
+  cursor: pointer;
+}
+
 .stopwatch__display {
+  color: rgb(230,121,121);
+  font-size: 2em;
+  margin-bottom: 1em;
+}
+
+.stopwatch_text {
+  background-color: #fff;
+  width: 42em;
+  max-width: 90%;
+  margin: 3em auto;
+  padding: .5em 2em;
+  box-sizing: border-box;
+  color: rgba(0,0,0,0.7);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.11), 0 3px 6px rgba(0,0,0,0.13);
+}
+
+.twenty {
+  color: rgb(230,121,121);
+  font-size: 1em;
   margin-bottom: 1em;
 }

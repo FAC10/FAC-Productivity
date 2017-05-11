@@ -15,22 +15,20 @@ const port = process.env.PORT || 4000;
 
 server.connection({
   port,
-  tls: process.env.NODE_ENV !== 'production' && {
+  tls: process.env.NODE_ENV !== 'test' && {
     key: fs.readFileSync('./keys/key.pem'),
     cert: fs.readFileSync('./keys/cert.pem'),
   },
-  // state: {
-  //   isSameSite: 'Lax',
-  // },
 });
 
 server.register([vision, inert, cookieAuthModule, contextCredentials], (err) => {
+  /* istanbul ignore next */
   if (err) throw err;
 
   server.auth.strategy('base', 'cookie', 'required', {
     password: process.env.COOKIE_PASSWORD,
     cookie: 'FACAPPS',
-    isSecure: true,
+    isSecure: process.env.NODE_ENV !== 'test',
     ttl: 24 * 60 * 60 * 1000,
     redirectTo: '/',
     redirectOnTry: false,

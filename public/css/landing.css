@@ -1,5 +1,4 @@
 /*landing page styles*/
-
 body, html {
   padding: 0;
   margin: 0;
@@ -7,23 +6,24 @@ body, html {
 }
 
 .landing_logo {
-  width: 12em;
+  width: 13em;
   height: auto;
-  border-radius: 10%;
   margin: 0 auto;
   display: block;
 }
 
 .landing_heading {
-  margin: 1em 0 0 0;
+  margin: 0em 0 0 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: rgb(230,121,121);
 }
 
 .landing_heading__sub {
-  font-size: 1.5rem;
+  font-size: 2.7rem;
+  line-height: 4rem;
   display: block;
+  color: #216868;
 }
 
 .login_with_github_wrap {
@@ -58,9 +58,7 @@ body, html {
 
 .landing__info__wrap {
   max-width: 30em;
-  margin: 3em auto;
-  border-radius: 1em;
-  border: 0.3em solid rgb(230,121,121);
+  margin: 0 auto;
   overflow: hidden;
   box-sizing: border-box;
 }
@@ -70,7 +68,7 @@ body, html {
   width: auto;
   height: auto;
   border-radius: .75em;
-  background-color: rgb(230,121,121);
+  background-color: rgb(174,55,56);
   max-width: 1.5em;
   min-width: 1.5em;
   min-height: 1.5em;
@@ -78,7 +76,7 @@ body, html {
   line-height: 1.5em;
   color: white;
   text-align: center;
-  margin: .5em auto 1em auto;
+  margin: 0 auto;
   transition: .3s all ease;
   box-sizing: border-box;
   display: block;
@@ -86,12 +84,11 @@ body, html {
 
 .landing__info--active {
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1em;
   color: white;
-  background-color: rgb(230,121,121);
-  border-radius: 0;
+  background-color: rgb(174,55,56);
+  border-radius: .3em;
   min-width: 100%;
-  min-height: 8em;
   padding: 1em;
   transition: .2s all cubic-bezier(0.22, 0.61, 0.36, 1);
   margin: 0 auto;
@@ -102,11 +99,15 @@ body, html {
 }
 
 .gradient_bulb_glow {
-  padding-top: 5em;
-  box-sizing: border-box;
+  padding-top: 4em;
   height: 100vh;
-  background: -webkit-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Safari 5.1 to 6.0 */
-  background: -o-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Opera 11.6 to 12.0 */
-  background: -moz-radial-gradient(circle at center 10vh, white, white, #ffcd71); /* For Fx 3.6 to 15 */
-  background: radial-gradient(circle at center 10vh, white, white, #ffcd71); /* Standard syntax (must be last) */
+  background: #ffcda3;
+}
+
+
+.gradient--active {
+  background: -webkit-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* For Fx 3.6 to 15 */
+  background: radial-gradient(circle at center 10vh, white, #fbe9a1, #ffcda3); /* Standard syntax (must be last) */
 }

@@ -5,13 +5,20 @@ const routes = [
   { url: '/', method: 'GET', statusCode: 200, payload: 'DOCTYPE html' },
   { url: '/some-bad-url', method: 'GET', statusCode: 404 },
   { url: '/home', method: 'GET', statusCode: 302 }, // not logged in
-  { url: '/css/style.css', method: 'GET', statusCode: 200 },
+  { url: '/css/apps.css', method: 'GET', statusCode: 200 },
   { url: '/csssss', method: 'GET', statusCode: 404 },
   { url: '/home', method: 'GET', credentials: 'user', statusCode: 200 },
   { url: '/twenty', method: 'GET', statusCode: 302 },
   { url: '/twenty', method: 'GET', credentials: 'user', statusCode: 200 },
   { url: '/pomodoro', method: 'GET', statusCode: 302 },
   { url: '/pomodoro', method: 'GET', credentials: 'user', statusCode: 200 },
+  { url: '/add', method: 'GET', statusCode: 302 },
+  { url: '/add', method: 'GET', credentials: 'user', statusCode: 200 },
+  { url: '/lpop-admin', method: 'GET', statusCode: 302 },
+  { url: '/lpop-admin', method: 'GET', credentials: 'user', statusCode: 200 },
+  { url: '/lpop', method: 'GET', statusCode: 302 },
+  { url: '/lpop', method: 'GET', credentials: 'user', statusCode: 200 },
+  { url: '/logout', method: 'GET', credentials: 'user', statusCode: 302 },
 ];
 
 routes.forEach(({ url, method, statusCode, payload, credentials }) => {
