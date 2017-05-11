@@ -12,7 +12,7 @@ module.exports = (listener) => {
   child.stdin.setEncoding('utf-8');
   child.stdout.pipe(process.stdout);
 
-  let currentProcess = { child, type: null }; // eslint-disable-line
+  let currentProcess = { child, type: 'text' }; // eslint-disable-line
   console.log(currentProcess);
 
   const runText = (text) => {
@@ -40,9 +40,9 @@ module.exports = (listener) => {
         runClock();
       }, 5000);
     } else {
-      runText(currentProcess, `  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        runText(currentProcess, `  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
@@ -58,7 +58,7 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      runText(currentProcess, `${data.n}\n`);
+      runText(`${data.n}\n`);
       runClock(true);
       io.emit('name', data);
       if (data.id) {
@@ -69,7 +69,7 @@ module.exports = (listener) => {
     });
 
     socket.on('displayWord', ({ string }) => {
-      runText(currentProcess, `${string}\n`);
+      runText(`${string}\n`);
     });
 
     socket.on('update', () => io.emit('update'));
