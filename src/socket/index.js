@@ -8,6 +8,7 @@ module.exports = (listener) => {
   const io = require('socket.io').listen(listener);
 
   let child = null;
+  let type = null;
   const startText = () => {
     const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
     const fonts = '../rpi-rgb-led-matrix/fonts/';
@@ -46,10 +47,12 @@ module.exports = (listener) => {
 
     child.stdin.setEncoding('utf-8');
     child.stdout.pipe(process.stdout);
+    type = 'text';
   };
 
   const killProcess = () => {
     child.kill();
+    type = null;
     setTimeout(() => {
       startText();
     }, 4000);
@@ -70,9 +73,9 @@ module.exports = (listener) => {
       }, 5000);
     } else {
       const hour = 1000 * 60 * 60;
-      child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`);
+      type === 'text' ? child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`) : '';
       clock = setInterval(() => {
-        child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`);
+        type === 'text' ? child.stdin.write(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}\n`) : '';
       }, 30000);
     }
   };
@@ -88,7 +91,7 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      child.stdin.write(`${data.n}\n`);
+      type === 'text' ? child.stdin.write(`${data.n}\n`) : '';
       runClock(true);
       io.emit('name', data);
       if (data.id) {
