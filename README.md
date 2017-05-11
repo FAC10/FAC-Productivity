@@ -1,6 +1,7 @@
 # FAC Classroom Apps
 
 [![codecov](https://codecov.io/gh/yvonne-liu/fac-hardware/branch/master/graph/badge.svg)](https://codecov.io/gh/yvonne-liu/fac-hardware)
+[![Build Status](https://travis-ci.org/yvonne-liu/FAC-Hardware.svg?branch=master)](https://travis-ci.org/yvonne-liu/FAC-Hardware)
 
 ### Welcome
 
