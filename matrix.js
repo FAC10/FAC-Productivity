@@ -25,7 +25,7 @@ const textExample = '../rpi-rgb-led-matrix/examples-api-use/text-example';
 const fonts = '../rpi-rgb-led-matrix/fonts/';
 const font = '8x13B.bdf';
 const yPos = '14';
-const rgb = [210, 145, 10];
+const rgb = [Math.floor(Math.random() * 255), Math.floor(Math.random() * 255), Math.floor(Math.random() * 255)];
 
 
 const child = exec(`${textExample} -f ${fonts}${font} -y${yPos} -C${rgb[0]},${rgb[1]},${rgb[2]} --led-rows=32 --led-chain=2`);

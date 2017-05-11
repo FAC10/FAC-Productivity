@@ -2,8 +2,24 @@ const { tickById, reset } = require('../database/post');
 const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
 
-module.exports = (listener) => {
+module.exports = (listener, childProcess) => {
   const io = require('socket.io').listen(listener);
+
+  let clock = null;
+  const runClock = (stop) => {
+    if (stop) {
+      clock ? clearInterval(clock) : '';
+      setTimeout(() => {
+        runClock();
+      }, 5000);
+    } else {
+      childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      clock = setInterval(() => {
+        childProcess.stdin.write(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      }, 30000);
+    }
+  };
+
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
@@ -15,6 +31,8 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
+      childProcess.stdin.write(`${data.n}\n`);
+      runClock(true);
       io.emit('name', data);
       if (data.id) {
         tickById(data.id, (err) => {
