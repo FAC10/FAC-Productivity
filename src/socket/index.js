@@ -41,6 +41,11 @@ module.exports = (listener, childProcess) => {
       }
     });
 
+    socket.on('wifipwd', (data) => {
+      console.log(`${data.data}`);
+      //childProcess.stdin.write('${data.}')
+    })
+
     socket.on('update', () => io.emit('update'));
 
     socket.on('allPop', () => callAllPop());

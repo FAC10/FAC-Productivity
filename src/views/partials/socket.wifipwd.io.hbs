@@ -1,0 +1,9 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
+<script>
+  var socket = io();
+  document.getElementById('button').addEventListener("click", function (event) {
+    console.log('++++',m.value);
+    socket.emit('wifipwd', {data: m.value});
+  });
+
+</script>
