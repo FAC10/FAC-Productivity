@@ -1,9 +1,9 @@
 # FAC Classroom Apps
 
-[![codecov](https://codecov.io/gh/yvonne-liu/fac-hardware/branch/master/graph/badge.svg)](https://codecov.io/gh/yvonne-liu/fac-hardware)
-[![Build Status](https://travis-ci.org/yvonne-liu/FAC-Hardware.svg?branch=master)](https://travis-ci.org/yvonne-liu/FAC-Hardware)
+[![codecov](https://codecov.io/gh/yvonne-liu/FAC-Productivity/branch/master/graph/badge.svg)](https://codecov.io/gh/yvonne-liu/FAC-Productivity)
+[![Build Status](https://travis-ci.org/yvonne-liu/FAC-Productivity.svg?branch=master)](https://travis-ci.org/yvonne-liu/FAC-Productivity)
 
-### Welcome
+### Welcome!
 
 FAC classroom apps is a product platform designed to enhance learning in an open source, peer-lead environment, such as our coding bootcamps.
 
