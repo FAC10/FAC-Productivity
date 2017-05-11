@@ -56,6 +56,7 @@ module.exports = (listener) => {
       type = 'starting';
       console.log('happenning');
       startText();
+      displayText(text);
     }
   };
 
