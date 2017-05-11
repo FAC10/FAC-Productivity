@@ -42,9 +42,9 @@ module.exports = (listener) => {
         runClock();
       }, 5000);
     } else {
-      runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+      // runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       clock = setInterval(() => {
-        runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
+        // runText(`  ${new Date(Date.now()).toISOString().slice(-13, -8)}\n`);
       }, 30000);
     }
   };
@@ -60,7 +60,7 @@ module.exports = (listener) => {
 
     // React client stuff
     socket.on('name', (data) => {
-      runText(`${data.n}\n`);
+      // runText(`${data.n}\n`);
       runClock(true);
       io.emit('name', data);
       if (data.id) {
@@ -71,7 +71,7 @@ module.exports = (listener) => {
     });
 
     socket.on('displayWord', ({ string }) => {
-      runText(`${string}\n`);
+      // runText(`${string}\n`);
     });
 
     socket.on('update', () => io.emit('update'));
