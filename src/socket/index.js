@@ -15,22 +15,21 @@ module.exports = (listener) => {
   let currentProcess = { child, type: null }; // eslint-disable-line
   console.log(currentProcess);
 
-  const runText = (current, text) => {
-    console.log(current);
-    if (current.type === 'text') {
+  const runText = (text) => {
+    if (currentProcess.type === 'text') {
       console.log('IS TEXT');
-      return current.child.stdin.write(`${text}\n`);
-    } else if (current.type) {
-      current.child.kill();
+      return currentProcess.child.stdin.write(`${text}\n`);
+    } else if (currentProcess.type) {
+      currentProcess.child.kill();
       console.log('TYPE EXISTS');
     }
     console.log('happening');
-    const child = exec(options);
-    child.stdin.setEncoding('utf-8');
-    child.stdout.pipe(process.stdout);
+    currentProcess.child = exec(options);
+    currentProcesschild.stdin.setEncoding('utf-8');
+    currentProcesschild.stdout.pipe(process.stdout);
 
-    currentProcess = { child, type: 'text' };
-    child.stdin.write(`${text}\n`);
+    currentProcess.type = 'text';
+    currentProcesschild.stdin.write(`${text}\n`);
   };
 
   let clock = null;
