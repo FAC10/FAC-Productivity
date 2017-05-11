@@ -16,7 +16,12 @@
   flex-direction: row;
 }
 
-.stopwatch__button:hover :active {
+.stopwatch__button:hover {
+  fill: rgb(230,89,89);
+  cursor: pointer;
+}
+
+.stopwatch__button:active {
   fill: rgb(230,89,89);
   cursor: pointer;
 }
