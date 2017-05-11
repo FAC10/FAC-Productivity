@@ -32,7 +32,7 @@
   color: rgba(255,250,250, 0.9);
   display: inline-block;
   margin: 0 auto;
-  margin-bottom: 2em; 
+  margin-bottom: 2em;
   font-weight: bold;
   position: relative;
   top: 0;
@@ -86,4 +86,16 @@
 
 .lpop_qn {
   font-style: italic;
+}
+
+.access_admin {
+  box-sizing: border-box;
+  width: 8em;
+  background: #fbe9a1;
+  margin: 2em auto;
+  padding: .5em;
+  border-radius: .3em;
+  color: rgba(0,0,0,0.7);
+  box-shadow: 0 .2em .2em #aa7c39, 0 .2em .2em #aa7c39;
+  cursor: pointer; 
 }
