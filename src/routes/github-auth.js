@@ -46,8 +46,11 @@ module.exports = {
 
       parallel([requestOrgs, requestUser, requestStars, requestStarCount], (err, [orgs, user, stars, numStars]) => {
         if (err) {
+          console.log(err);
           return reply.view('error', { error: 'Invalid response from Github.' });
         }
+
+        console.log(userInfo, orgsInfo, isStarred, starCount);
 
         const userInfo = JSON.parse(user[1]);
         const orgsInfo = JSON.parse(orgs[1]);
