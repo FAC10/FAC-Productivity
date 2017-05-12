@@ -72,7 +72,6 @@ module.exports = (listener, childProcess) => {
     type = 'dead';
     console.log('KILLED THE PROCESS', type);
   };
-=
 
   const displayGif = () => {
     killProcess();
