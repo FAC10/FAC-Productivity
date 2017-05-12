@@ -36,8 +36,8 @@ module.exports = {
 
       const userUrl = 'https://api.github.com/user';
       const orgsUrl = 'https://api.github.com/user/orgs';
-      const starsUrl = 'https://api.github.com/user/starred/yvonne-liu/FAC-Hardware';
-      const starCountUrl = 'https://api.github.com/repos/yvonne-liu/FAC-Hardware/stargazers';
+      const starsUrl = 'https://api.github.com/user/starred/yvonne-liu/FAC-Productivity';
+      const starCountUrl = 'https://api.github.com/repos/yvonne-liu/FAC-Productivity/stargazers';
 
       const requestUser = partial(request.get, { url: userUrl, headers });
       const requestOrgs = partial(request.get, { url: orgsUrl, headers });
