@@ -7,6 +7,9 @@
   padding: 1em;
   box-sizing: border-box;
 }
+#charLeft {
+  padding: 0.3em;
+}
 
 .led__input {
   padding: .5em;

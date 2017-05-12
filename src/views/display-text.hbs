@@ -2,12 +2,15 @@
 
 <section class="info-box">
   <p><strong>Use this form to print anything you want line by line to the LED matrix</strong></p>
-  <p>(Example: print the WiFi password at Founders & Coders Meetups)</p>
+  <p>(Example: print the WiFi password at Founders &amp; Coders Meetups)</p>
 
   <form id="form" class="led">
-    <input id="m" class="led__input" autocomplete="off" />
+    <input id="m" class="led__input" autocomplete="off" maxlength="16" />
     <button id="button" class="led__submit">Send</button>
+    <div id="charLeft">&nbsp;</div>
   </form>
 </section>
+
+<script src="/js/display-text.js"></script>
 
 {{>socket.wifipwd.io}}
