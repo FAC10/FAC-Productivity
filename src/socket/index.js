@@ -73,23 +73,6 @@ module.exports = (listener, childProcess) => {
     console.log('KILLED THE PROCESS', type);
   };
 
-  const displayGif = () => {
-    killProcess();
-    setTimeout(() => {
-      if (type === 'dead') {
-        type = 'gif';
-        console.log('happening');
-        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer -l2 ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
-        setTimeout(() => {
-          console.log(child.pid);
-          // kill(child.pid);
-          // kill(child.pid + 1);
-          console.log('--- tried to kill');
-        }, 2000);
-      }
-    }, 500);
-  };
-
 
   startText('small');
 
@@ -111,6 +94,21 @@ module.exports = (listener, childProcess) => {
         displayText(`  ${new Date(Date.now() + hour).toISOString().slice(-13, -8)}`);
       }, 30000);
     }
+  };
+
+  const displayGif = () => {
+    killProcess();
+    setTimeout(() => {
+      if (type === 'dead') {
+        type = 'gif';
+        console.log('happening');
+        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer -l2 ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
+        setTimeout(() => {
+          runClock();
+          console.log('--- tried to kill');
+        }, 2000);
+      }
+    }, 500);
   };
 
   const stopClock = () => {
