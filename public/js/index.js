@@ -3,6 +3,7 @@ const button = document.querySelector('.github_star_link');
 const setStars = (starCount, element) => {
   element.innerText = starCount;
   element.classList.add('github_star_link--starcount');
+  socket.emit('star');
 };
 
 button.addEventListener('click', () => {
