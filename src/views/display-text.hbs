@@ -5,12 +5,10 @@
   <p>(Example: print the WiFi password at Founders &amp; Coders Meetups)</p>
 
   <form id="form" class="led">
-    <input id="m" class="led__input" autocomplete="off" maxlength="16" />
-    <button id="button" class="led__submit">Send</button>
+    <input id="m" class="led__input" autocomplete="off" maxlength="15" />
+    <button id="button" class="led__button">Send</button><button id="clear_button" class="led__button">Clear</button>
     <div id="charLeft">&nbsp;</div>
   </form>
 </section>
-
-<script src="/js/display-text.js"></script>
 
 {{>socket.wifipwd.io}}
