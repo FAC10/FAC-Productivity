@@ -13,11 +13,14 @@ const server = new hapi.Server();
 
 const port = process.env.PORT || 4000;
 
-const isLive = (process.env.NODE_ENV !== 'test' || process.env.NODE_ENV !== 'production');
+const isLiveTest = process.env.NODE_ENV !== 'test';
+const isLiveProduction = process.env.NODE_ENV !== 'production';
+console.log(isLiveTest);
+console.log(isLiveProduction);
 
 server.connection({
   port,
-  tls: isLive && {
+  tls: (isLiveTest || isLiveProduction) && {
     key: fs.readFileSync('./keys/key.pem'),
     cert: fs.readFileSync('./keys/cert.pem'),
   },
@@ -30,7 +33,7 @@ server.register([vision, inert, cookieAuthModule, contextCredentials], (err) => 
   server.auth.strategy('base', 'cookie', 'required', {
     password: process.env.COOKIE_PASSWORD,
     cookie: 'FACAPPS',
-    isSecure: isLive,
+    isSecure: isLiveTest || isLiveProduction,
     ttl: 24 * 60 * 60 * 1000,
     redirectTo: '/',
     redirectOnTry: false,
