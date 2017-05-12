@@ -1,11 +1,34 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.js"></script>
 <script>
-  var socket = io();
-  document.getElementById('button').addEventListener("click", function (event) {
+  const socket = io();
+  const maxLength = 16;
+  const m = document.getElementById('m');
+  const button = document.getElementById('button');
+  const clear = document.getElementById('clear_button');
+
+  const displayCharLeft = () => {
+    let strLength = maxLength - m.value.length
+    strLength -= 1;
+    document.getElementById('charLeft').innerText = strLength + ' characters left';
+  }
+
+  m.addEventListener('keyup', displayCharLeft);
+
+  button.addEventListener("click", function (event) {
     event.preventDefault();
-    socket.emit('wifipwd', {data: m.value});
+    const display = !m.value ? ' ' : m.value;
+    socket.emit('wifipwd', {data: display});
     m.value = '';
     m.focus();
+    displayCharLeft();
+  });
+
+  clear.addEventListener("click", function (event) {
+    event.preventDefault();
+    socket.emit('wifipwd', {data: ''});
+    m.value = '';
+    m.focus();
+    displayCharLeft();
   });
 
 </script>
