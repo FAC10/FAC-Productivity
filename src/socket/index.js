@@ -80,6 +80,8 @@ module.exports = (listener, childProcess) => {
         console.log('happening');
         child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
         setTimeout(() => {
+          child.end();
+          child.kill();
           killProcess();
         }, 2000);
       }
