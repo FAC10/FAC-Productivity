@@ -79,7 +79,7 @@ module.exports = (listener, childProcess) => {
       if (type === 'dead') {
         type = 'gif';
         console.log('happening');
-        child = spawn('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif', ['--led-rows=32 --led-chain=2']);
+        child = spawn('../rpi-rgb-led-matrix/utils/led-image-viewer'['../rpi-rgb-led-matrix/utils/STAR.gif', '--led-rows=32', '--led-chain=2']);
         setTimeout(() => {
           child.kill('SIGINT');
         }, 2000);
