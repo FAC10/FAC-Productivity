@@ -2,6 +2,7 @@ const { tickById, reset } = require('../database/post');
 const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
 const exec = require('child_process').exec;
+const spawn = require('child_process').spawn;
 
 
 module.exports = (listener, childProcess) => {
@@ -78,11 +79,9 @@ module.exports = (listener, childProcess) => {
       if (type === 'dead') {
         type = 'gif';
         console.log('happening');
-        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
+        child = spawn('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2', { detached: true });
         setTimeout(() => {
-          child.stdin.end();
-          child.kill();
-          killProcess();
+          process.kill(-child.pid);
         }, 2000);
       }
     }, 500);
