@@ -72,7 +72,7 @@ module.exports = (listener, childProcess) => {
     type = 'dead';
     console.log('KILLED THE PROCESS', type);
   };
-
+=
 
   const displayGif = () => {
     killProcess();
@@ -80,11 +80,11 @@ module.exports = (listener, childProcess) => {
       if (type === 'dead') {
         type = 'gif';
         console.log('happening');
-        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2', { timeout: 1000 });
+        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2 -l2');
         setTimeout(() => {
           console.log(child.pid);
-          kill(child.pid);
-          kill(child.pid + 1);
+          // kill(child.pid);
+          // kill(child.pid + 1);
           console.log('--- tried to kill');
         }, 2000);
       }
