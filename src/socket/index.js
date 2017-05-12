@@ -83,11 +83,6 @@ module.exports = (listener, childProcess) => {
   };
 
 
-  socket.on('star', () => {
-    displayGif();
-  });
-
-
   startText('small');
 
   let clock = null;
@@ -124,6 +119,10 @@ module.exports = (listener, childProcess) => {
 
     getCurrent((err, { currentName }) => socket.emit('name', { n: currentName }));
     callAllPop();
+
+    socket.on('star', () => {
+      displayGif();
+    });
 
     // React client stuff
     socket.on('name', (data) => {
