@@ -79,6 +79,9 @@ module.exports = (listener, childProcess) => {
         type = 'gif';
         console.log('happening');
         child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
+        setTimeout(() => {
+          killProcess();
+        }, 2000);
       }
     }, 500);
   };
