@@ -135,7 +135,6 @@ module.exports = (listener, childProcess) => {
       setTimeout(() => {
         startText('small');
         stopClock();
-        console.log('GETS TO HERE');
         displayText(data.data);
       }, 500);
     });
