@@ -14,7 +14,7 @@ module.exports = {
 
     const options = {
       headers,
-      url: 'https://api.github.com/user/starred/yvonne-liu/FAC-Hardware',
+      url: 'https://api.github.com/user/starred/yvonne-liu/FAC-Productivity',
     };
 
 
@@ -25,7 +25,7 @@ module.exports = {
 
       const starsOptions = {
         headers,
-        url: 'https://api.github.com/repos/yvonne-liu/FAC-Hardware',
+        url: 'https://api.github.com/repos/yvonne-liu/FAC-Productivity',
       };
 
 
