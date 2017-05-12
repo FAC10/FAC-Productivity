@@ -94,8 +94,9 @@ module.exports = (listener, childProcess) => {
   };
 
   const stopClock = () => {
+    console.log('happning', clock);
     clock ? clearInterval(clock) : '';
-    console.log(clock);
+    // clock = null;
   };
 
 
