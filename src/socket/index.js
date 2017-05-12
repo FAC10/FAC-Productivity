@@ -78,7 +78,7 @@ module.exports = (listener, childProcess) => {
       if (type === 'dead') {
         type = 'gif';
         console.log('happening');
-        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/star.gif --led-rows=32 --led-chain=2');
+        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2');
       }
     }, 500);
   };
