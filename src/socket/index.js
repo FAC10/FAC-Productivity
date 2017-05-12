@@ -84,6 +84,7 @@ module.exports = (listener, childProcess) => {
         setTimeout(() => {
           console.log(child.pid);
           kill(child.pid);
+          kill(child.pid + 1);
           console.log('--- tried to kill');
         }, 2000);
       }
