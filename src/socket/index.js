@@ -3,6 +3,7 @@ const { allPop, getCurrent } = require('../database/get');
 const getRandomName = require('./getRandomName');
 const exec = require('child_process').exec;
 const spawn = require('child_process').spawn;
+const kill = require('tree-kill');
 
 
 module.exports = (listener, childProcess) => {
@@ -81,7 +82,8 @@ module.exports = (listener, childProcess) => {
         console.log('happening');
         child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/STAR.gif --led-rows=32 --led-chain=2', { timeout: 1000 });
         setTimeout(() => {
-          child.kill('SIGINT');
+          console.log(child.pid);
+          kill(child.pid);
           console.log('--- tried to kill');
         }, 2000);
       }
