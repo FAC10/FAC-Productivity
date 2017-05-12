@@ -15,12 +15,10 @@ const port = process.env.PORT || 4000;
 
 const isLiveTest = process.env.NODE_ENV !== 'test';
 const isLiveProduction = process.env.NODE_ENV !== 'production';
-console.log(isLiveTest);
-console.log(isLiveProduction);
 
 server.connection({
   port,
-  tls: (isLiveTest || isLiveProduction) && {
+  tls: (isLiveTest && isLiveProduction) && {
     key: fs.readFileSync('./keys/key.pem'),
     cert: fs.readFileSync('./keys/cert.pem'),
   },
@@ -33,7 +31,7 @@ server.register([vision, inert, cookieAuthModule, contextCredentials], (err) => 
   server.auth.strategy('base', 'cookie', 'required', {
     password: process.env.COOKIE_PASSWORD,
     cookie: 'FACAPPS',
-    isSecure: isLiveTest || isLiveProduction,
+    isSecure: isLiveTest && isLiveProduction,
     ttl: 24 * 60 * 60 * 1000,
     redirectTo: '/',
     redirectOnTry: false,
