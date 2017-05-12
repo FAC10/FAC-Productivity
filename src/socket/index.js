@@ -71,6 +71,18 @@ module.exports = (listener, childProcess) => {
     console.log('KILLED THE PROCESS', type);
   };
 
+
+  const displayGif = () => {
+    killProcess();
+    setTimeout(() => {
+      if (type === 'dead') {
+        type = 'gif';
+        child = exec('../rpi-rgb-led-matrix/utils/led-image-viewer ../rpi-rgb-led-matrix/utils/star.gif --led-rows=32 --led-chain=2');
+      }
+    }, 500);
+  };
+
+
   startText('small');
 
   let clock = null;
@@ -108,6 +120,10 @@ module.exports = (listener, childProcess) => {
     getCurrent((err, { currentName }) => socket.emit('name', { n: currentName }));
     callAllPop();
 
+    socket.on('star', () => {
+      displayGif();
+    });
+
     // React client stuff
     socket.on('name', (data) => {
       console.log(type);
@@ -127,7 +143,7 @@ module.exports = (listener, childProcess) => {
       if (!data.data) {
         return runClock(true);
       }
-      if (size === 'small') {
+      if (size === 'small' && type === 'text') {
         return displayText(data.data);
       }
       console.log(data.data);

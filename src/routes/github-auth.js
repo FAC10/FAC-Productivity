@@ -49,6 +49,7 @@ module.exports = {
           return reply.view('error', { error: 'Invalid response from Github.' });
         }
 
+
         const userInfo = JSON.parse(user[1]);
         const orgsInfo = JSON.parse(orgs[1]);
         const isStarred = stars[0].headers.status === '204 No Content';
