@@ -17,12 +17,13 @@
   margin-right: 0;
 }
 
-.led__submit {
+.led__button {
   background-color: #F67374;
   font-size: 1em;
   padding: .5em;
   border: none;
   margin-left: 0;
+  margin-right: 0.1em;
   color: white;
 }
 
