@@ -95,6 +95,7 @@ module.exports = (listener, childProcess) => {
 
   const stopClock = () => {
     clock ? clearInterval(clock) : '';
+    console.log(clock);
   };
 
 
