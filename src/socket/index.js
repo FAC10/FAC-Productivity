@@ -96,8 +96,14 @@ module.exports = (listener, childProcess) => {
     }
   };
 
+  const stopClock = () => {
+    console.log('happning', clock);
+    clock ? clearInterval(clock) : '';
+  };
+
   const displayGif = () => {
     killProcess();
+    stopClock();
     setTimeout(() => {
       if (type === 'dead') {
         type = 'gif';
@@ -110,13 +116,6 @@ module.exports = (listener, childProcess) => {
       }
     }, 500);
   };
-
-  const stopClock = () => {
-    console.log('happning', clock);
-    clock ? clearInterval(clock) : '';
-    // clock = null;
-  };
-
 
   io.on('connection', (socket) => {
     const render = (err, name) => err ? console.log(err) : io.emit('allName', { n: name.name || name, id: name.id || null });
