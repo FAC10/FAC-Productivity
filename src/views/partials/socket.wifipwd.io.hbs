@@ -1,7 +1,7 @@
 <script>
   const maxLength = 16;
   const m = document.getElementById('m');
-  const button = document.getElementById('button');
+  const sendMessageButton = document.getElementById('button');
   const clear = document.getElementById('clear_button');
 
   const displayCharLeft = () => {
@@ -12,7 +12,7 @@
 
   m.addEventListener('keyup', displayCharLeft);
 
-  button.addEventListener("click", function (event) {
+  sendMessageButton.addEventListener("click", function (event) {
     event.preventDefault();
     const display = !m.value ? ' ' : m.value;
     socket.emit('wifipwd', {data: display});
