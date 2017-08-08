@@ -1,6 +1,6 @@
 module.exports = {
   method: 'GET',
-  path: '/lpop',
+  path: '/',
   handler: (req, reply) => {
     reply.view('lpop');
   },

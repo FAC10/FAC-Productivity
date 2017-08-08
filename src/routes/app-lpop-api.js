@@ -1,14 +1,11 @@
 const { allPop, getCurrent, getNames } = require('../database/get');
 const { deleteName } = require('../database/del');
-const { addName, setCurrent, tick, tickById, toggleTickById, reset, allPop: checkAllPop } = require('../database/post');
+const { addName, setCurrent, tick, toggleTickById, reset, allPop: checkAllPop } = require('../database/post');
 const { parallelOld, partial } = require('../lib/utilities');
 
 module.exports = {
   method: ['POST', 'DELETE', 'GET', 'PUT'],
   path: '/api',
-  config: {
-    auth: { mode: 'try' },
-  },
   handler: (req, reply) => {
     const params = Object.keys(req.query).reduce((acc, item) => {
       acc[item] = req.query[item];
@@ -45,17 +42,21 @@ module.exports = {
     }[req.method];
 
     Object.keys(apiTasks).forEach((task) => {
-      params.hasOwnProperty(task) ? taskList.push(apiTasks[task]) : '';
+      if (Object.prototype.hasOwnProperty.call(params, task)) {
+        taskList.push(apiTasks[task]);
+      }
     });
 
     if (taskList.length) {
       parallelOld(taskList, (err, res) => {
-        err ?
-        reply({ error: 'Error connecting to database.' }) :
-        reply(res.reduce((acc, item) => {
-          acc[Object.keys(item)[0]] = item[Object.keys(item)[0]];
-          return acc;
-        }, {}));
+        if (err) {
+          reply({ error: 'Error connecting to database.' });
+        } else {
+          reply(res.reduce((acc, item) => {
+            acc[Object.keys(item)[0]] = item[Object.keys(item)[0]];
+            return acc;
+          }, {}));
+        }
       });
     } else {
       reply({ error: 'Incorrect query.' });
