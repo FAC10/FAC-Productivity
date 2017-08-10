@@ -1,6 +1,6 @@
-export const getChecked = (list) => list.filter(name => name.selected)
+export const getChecked = (list) => list ? list.filter(name => name.selected) : []
 
-export const getUnchecked = (list) => list.filter(name => !name.selected)
+export const getUnchecked = (list) => list ? list.filter(name => !name.selected) : []
 
 export const check = (item) => ({...item, selected: true})
 
@@ -18,7 +18,8 @@ export const removeName = (list, id) => {
   ]
 }
 
-export const addName = (list, item) => [...list, item]
+export const addName = (list = [], item) => {
+  return [...list, item]}
 
 export const validateAdd = (input) => input.replace(/[^a-z]/gi, '').length > 1
 

@@ -15,7 +15,9 @@ get.getNames = (callback) => {
 get.getCurrent = (callback) => {
   connect.query('SELECT name FROM current;', (err, res) => {
     // Get current name
-    err ? callback(err) : callback(null, { currentName: res.rows[0].name });
+    err ? callback(err) :
+    !res.rows[0].name ? callback(new Error('No results')) :
+    callback(null, { currentName: res.rows[0].name });
   });
 };
 
